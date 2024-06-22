@@ -42,14 +42,14 @@ function AccountComponent({ userInfo }) {
           </div>
           <div className={styles.socialTable}>
             {userInfo.github != "" ? (
-              <Link to={githubUrl}>
+              <Link to={githubUrl} style={{ textDecoration: "none" }}>
                 <AccountRender img={githubIcon} account={userInfo.githubUrl} />
               </Link>
             ) : (
               <AccountRender img={githubIcon} account={userInfo.githubUrl} />
             )}
             {userInfo.instagram != "" ? (
-              <Link to={instagramUrl}>
+              <Link to={instagramUrl} style={{ textDecoration: "none" }}>
                 <AccountRender
                   img={instagramIcon}
                   account={"@" + userInfo.instagram}
