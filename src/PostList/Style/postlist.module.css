@@ -1,0 +1,59 @@
+.outer_post_box {
+  flex-direction: column;
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 150px;
+}
+
+.postlist_box {
+  width: 90%;
+  max-width: 800px;
+  margin: 10px 0;
+  cursor: pointer;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.title {
+  margin: 10px 0;
+  > p {
+    font-size: 28px;
+    font-weight: 700;
+  }
+}
+
+.contents {
+  margin: 0 0 10px 0;
+  line-height: 20px;
+  font-size: 16px;
+}
+
+.date > p {
+  font-size: 12px;
+  color: gray;
+  > span {
+    margin-left: 5px;
+  }
+}
+
+.category {
+  margin-top: -10px;
+  > p {
+    color: gray;
+    font-weight: 500;
+  }
+}
+
+.hr {
+  margin-top: 30px;
+  margin-bottom: 50px;
+  width: 95%;
+}
+
+.hr2 {
+  border: 1px solid white;
+  margin-top: 30px;
+  width: 95%;
+}

@@ -1,0 +1,27 @@
+.pagination_div {
+  width: 100%;
+  margin-top: 30px;
+  > * {
+    cursor: pointer;
+  }
+}
+
+.pagination_div ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination_div ul > li {
+  border: 1px solid black;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination_div ul > li > a {
+  color: black;
+  text-decoration-line: none;
+}
