@@ -42,7 +42,7 @@ function AdminHeader() {
 
   useEffect(() => {
     LoadAccount();
-    JWTTest();
+    // JWTTest();
   }, []);
 
   if (title) {
