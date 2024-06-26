@@ -1,16 +1,22 @@
-.box {
+.outer_post_box {
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
   margin-top: 150px;
 }
 
 .title {
-  margin-left: 30px;
+  margin: 0 0 0 30px;
+
   > input {
     border-width: 0 0 1px;
     height: 40px;
     width: 400px;
     font-size: 30px;
-    padding-left: 10px;
-    padding-bottom: 10px;
+    padding: 0 0 10px 10px;
+    margin: 0 0 20px 0;
   }
 
   > input::placeholder {
@@ -23,20 +29,55 @@
   }
 }
 
-.tag {
-  display: flex;
-  margin-bottom: 10px;
+.category {
+  margin: 30px 0 10px 30px;
+
   > input {
     border-width: 0 0 1px;
+    font-size: 15px;
+    padding: 0 0 5px 5px;
+  }
+
+  > input:focus {
+    outline: none;
+  }
+}
+
+.category_list {
+  margin: 0 0 20px 30px;
+  display: flex;
+  gap: 10px;
+
+  > div > p {
+    border: 1px solid black;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 100px;
+  }
+}
+
+.tag {
+  margin: 0 0 30px 30px;
+  display: flex;
+
+  > input {
+    border-width: 0 0 1px;
+    margin: 5px 0 0 0;
+    font-size: 15px;
+    padding: 0 0 5px 5px;
+  }
+
+  > input:focus {
+    outline: none;
   }
 }
 
 .tag_box {
   display: flex;
-  margin-right: 10px;
+  margin: 0 10px 0 0;
   > p {
     font-size: 15px;
-    margin-top: 5px;
+    margin: 5px 0 0 0;
   }
 
   > button {
@@ -47,14 +88,25 @@
   }
 }
 
-.text .textForm {
-  margin: 30px 100px 100px 100px;
+.textForm {
+  margin-left: 30px;
 }
 
 .textBox {
-  width: 100%;
-  max-width: 800px;
+  max-width: 1000px;
   height: 500px;
-  border: 1px solid black;
-  margin-bottom: 100px;
+  width: 95%;
+  margin: 0 0 60px 0;
+}
+
+.button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 0 0 50px 0;
+  > button {
+    border: none;
+    background-color: white;
+    font-size: 15px;
+  }
 }

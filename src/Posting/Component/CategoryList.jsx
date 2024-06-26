@@ -1,10 +1,10 @@
-function CategoryList({ categoryList, category, setCategory }) {
+function CategoryList({ categoryList, setCategory }) {
   return categoryList.map((category, index) => {
     function onClickCategory() {
       setCategory(category);
     }
     return (
-      <div onClick={onClickCategory} key={index}>
+      <div onzClick={onClickCategory} key={index}>
         <p>{category}</p>
       </div>
     );

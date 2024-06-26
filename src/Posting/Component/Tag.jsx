@@ -38,7 +38,6 @@ function Tag({ tag, setTag }) {
 
   return (
     <div className={styles.tag}>
-      <p>태그</p>
       <TagRender />
       <input
         placeholder="태그를 입력해주세요"

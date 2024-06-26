@@ -30,20 +30,6 @@ function PostingPage() {
 
   const [categoryList, setCategoryList] = useState([]);
 
-  async function Posting100() {
-    for (let i = 0; i < 100; i++) {
-      const result = await PostingFunction({
-        token: token,
-        postTitle: "testTitle",
-        postContents: "testContent",
-        imageSeqs: [],
-        tags: ["testTag"],
-        category: "testCategory",
-        isPinned: "0",
-      });
-    }
-  }
-
   async function Posting() {
     const result = await PostingFunction({
       token: token,
@@ -57,7 +43,7 @@ function PostingPage() {
 
     if (result.result) {
       alert("포스팅 성공");
-      navigate("/postlist");
+      navigate(`/post/${result.postSeq}`);
 
       return;
     }
@@ -100,19 +86,22 @@ function PostingPage() {
     return (
       <>
         <Header />
-        <div className={styles.box}>
+        <div className={styles.outer_post_box}>
           <Title title={postTitle} setTitle={setPostTitle} />
-          <CategoryList
-            categoryList={categoryList}
-            category={category}
-            setCategory={setCategory}
-          />
+
           <Catetory category={category} setCategory={setCategory} />
+          <div className={styles.category_list}>
+            <CategoryList
+              categoryList={categoryList}
+              setCategory={setCategory}
+            />
+          </div>
+
           <Tag tag={tags} setTag={setTags} />
           <Content content={postContents} setContent={setPostContents} />
-
-          <button onClick={Posting}>posting</button>
-          <button onClick={Posting100}>게시글100개등록</button>
+          <div className={styles.button}>
+            <button onClick={Posting}>글 작성하기</button>
+          </div>
         </div>
       </>
     );
