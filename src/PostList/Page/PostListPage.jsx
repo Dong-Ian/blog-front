@@ -11,6 +11,7 @@ function PostListPage() {
   const [pinnedPostList, setPinnedPostList] = useState(null);
   const [unPinnedPostList, setUnPinnedPostList] = useState(null);
   const [totalCount, setTotalCount] = useState(null);
+  const [activePage, setActivePage] = useState(1);
 
   async function LoadPostList({ page }) {
     const result = await LoadPostListFunction({ page, size: 5 });
@@ -22,6 +23,7 @@ function PostListPage() {
 
   function handlePageChange(e) {
     LoadPostList({ page: e });
+    setActivePage(e);
   }
 
   useEffect(() => {
@@ -39,6 +41,7 @@ function PostListPage() {
             totalCount={totalCount}
             onChange={handlePageChange}
             itemsCountPerPage={5}
+            activePage={activePage}
           />
         </div>
       </>

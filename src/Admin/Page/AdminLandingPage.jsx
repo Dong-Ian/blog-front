@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import LoadAccountFunction from "../../Account/Function/LoadAccountFunction";
-import AdminPage from "./AdminPage"; // AdminPage 컴포넌트 임포트
+import AdminPage from "./AdminPage";
 
 function AdminLandingPage() {
   const [profile, setProfile] = useState(null);

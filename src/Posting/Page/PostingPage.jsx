@@ -30,6 +30,20 @@ function PostingPage() {
 
   const [categoryList, setCategoryList] = useState([]);
 
+  async function Posting100() {
+    for (let i = 0; i < 100; i++) {
+      const result = await PostingFunction({
+        token: token,
+        postTitle: "testTitle",
+        postContents: "testContent",
+        imageSeqs: [],
+        tags: ["testTag"],
+        category: "testCategory",
+        isPinned: "0",
+      });
+    }
+  }
+
   async function Posting() {
     const result = await PostingFunction({
       token: token,
@@ -98,6 +112,7 @@ function PostingPage() {
           <Content content={postContents} setContent={setPostContents} />
 
           <button onClick={Posting}>posting</button>
+          <button onClick={Posting100}>게시글100개등록</button>
         </div>
       </>
     );

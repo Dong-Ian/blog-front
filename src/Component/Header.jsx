@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
+
 import { ColorState, isLoggedInState } from "../Utils/Atom";
 
 import styles from "./Style/component.module.css";
 
 import LoadAccountFunction from "../Account/Function/LoadAccountFunction";
 import accountIcon from "../Utils/Asset/person_white.png";
-import { useNavigate } from "react-router-dom";
 
 function Header() {
   const navigate = useNavigate();
@@ -37,7 +38,7 @@ function Header() {
           className={styles.header}
           style={{ backgroundColor: color.background }}
         >
-          <p>{title}</p>
+          <p onClick={() => navigate("/")}>{title}</p>
 
           <div className={styles.box}>
             {isLoggedIn && (

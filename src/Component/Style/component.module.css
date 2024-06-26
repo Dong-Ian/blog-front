@@ -13,13 +13,23 @@
   justify-content: space-between;
   align-items: center;
   justify-content: center;
+
+  > p {
+    font-size: 50px;
+    font-weight: bold;
+    display: inline;
+    text-decoration-line: none;
+    color: white;
+    cursor: pointer;
+  }
 }
 
-.header > p {
-  font-size: 50px;
-  font-weight: bold;
-  display: inline;
-  text-decoration-line: none;
-  color: white;
-  cursor: pointer;
+.box {
+  padding-top: 8px;
+  position: fixed;
+  right: 40px;
+
+  > img {
+    width: 40px;
+  }
 }
