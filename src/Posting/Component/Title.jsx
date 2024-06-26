@@ -1,3 +1,5 @@
+import styles from "../Style/Posting.module.css";
+
 function Title({ title, setTitle }) {
   function handleInput(event) {
     const {
@@ -7,12 +9,11 @@ function Title({ title, setTitle }) {
   }
 
   return (
-    <div>
-      <p>title</p>
+    <div className={styles.title}>
       <input
         name="title"
         onChange={handleInput}
-        placeholder="title"
+        placeholder="제목을 입력해주세요"
         value={title}
       />
     </div>

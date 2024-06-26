@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { isLoggedInState, tokenState } from "../../Utils/Atom";
 
+import styles from "../Style/Posting.module.css";
+
 import PostingFunction from "../Function/PostingFunction";
 import JWTTestFunction from "../../Utils/Function/JWTTestFunction";
 
@@ -11,6 +13,9 @@ import Title from "../Component/Title";
 import Content from "../Component/Content";
 import Catetory from "../Component/Category";
 import Tag from "../Component/Tag";
+import LoadCategoryFunction from "../Function/LoadCategoryFunction";
+import CategoryList from "../Component/CategoryList";
+import Header from "../../Component/Header";
 
 function PostingPage() {
   const navigate = useNavigate();
@@ -20,9 +25,10 @@ function PostingPage() {
 
   const [postTitle, setPostTitle] = useState("");
   const [postContents, setPostContents] = useState("");
-  // const [imageSeqs, setImageSeqs] = useState([]);
   const [tags, setTags] = useState([]);
   const [category, setCategory] = useState("");
+
+  const [categoryList, setCategoryList] = useState([]);
 
   async function Posting() {
     const result = await PostingFunction({
@@ -59,21 +65,43 @@ function PostingPage() {
     return;
   }
 
+  async function LoadCategory() {
+    const result = await LoadCategoryFunction();
+
+    if (result.result) {
+      setCategoryList(result.categoryList);
+      return;
+    }
+
+    alert("카테고리를 불러오는 중 오류가 발생했습니다.");
+    return;
+  }
+
   useEffect(() => {
     JWT();
+    LoadCategory();
   }, []);
 
-  return (
-    <div>
-      <p>posting page</p>
-      <Title title={postTitle} setTitle={setPostTitle} />
-      <Catetory category={category} setCategory={setCategory} />
-      <Tag tag={tags} setTag={setTags} />
-      <Content content={postContents} setContent={setPostContents} />
+  if (categoryList) {
+    return (
+      <>
+        <Header />
+        <div className={styles.box}>
+          <Title title={postTitle} setTitle={setPostTitle} />
+          <CategoryList
+            categoryList={categoryList}
+            category={category}
+            setCategory={setCategory}
+          />
+          <Catetory category={category} setCategory={setCategory} />
+          <Tag tag={tags} setTag={setTags} />
+          <Content content={postContents} setContent={setPostContents} />
 
-      <button onClick={Posting}>posting</button>
-    </div>
-  );
+          <button onClick={Posting}>posting</button>
+        </div>
+      </>
+    );
+  }
 }
 
 export default PostingPage;

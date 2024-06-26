@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from "../Style/Posting.module.css";
 
 function Tag({ tag, setTag }) {
   const [tagElement, setTagElement] = useState("");
@@ -27,7 +28,7 @@ function Tag({ tag, setTag }) {
   function TagRender() {
     return tag.map((tag, index) => {
       return (
-        <div key={index}>
+        <div className={styles.tag_box} key={index}>
           <p>{tag}</p>
           <button onClick={() => handleClearClick(index)}>x</button>
         </div>
@@ -36,11 +37,11 @@ function Tag({ tag, setTag }) {
   }
 
   return (
-    <div>
+    <div className={styles.tag}>
       <p>태그</p>
       <TagRender />
       <input
-        placeholder="tag"
+        placeholder="태그를 입력해주세요"
         value={tagElement}
         onChange={handleTag}
         onKeyPress={handleKeyPress}
