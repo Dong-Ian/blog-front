@@ -33,7 +33,7 @@ function PostListPage() {
       <>
         <Header />
         <div className={styles.outer_post_box}>
-          {/* <p>전체 게시글</p> */}
+          <p className={styles.box_title}>전체 게시글</p>
           <PostList postList={unPinnedPostList} />
           <PaginationComponent
             totalCount={totalCount}

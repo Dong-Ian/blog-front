@@ -47,6 +47,7 @@ function PinnedPostListPage() {
       <div>
         <Header />
         <div className={styles.outer_post_box}>
+          <p className={styles.box_title}>고정 게시글</p>
           <PostList postList={postList} />
           <PaginationComponent
             totalCount={totalCount}

@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
+import styles from "../Style/postlist.module.css";
+
 import LoadCategoryPostListFunction from "../Function/LoadCategoryPostListFunction";
 
 import PostList from "../Component/PostList";
+import Header from "../../Component/Header";
 
 function CategoryPostListPage() {
   const location = useLocation();
@@ -38,7 +41,11 @@ function CategoryPostListPage() {
   if (postList) {
     return (
       <div>
-        <PostList postList={postList} />
+        <Header />
+        <div className={styles.outer_post_box}>
+          <p className={styles.box_title}>{category}</p>
+          <PostList postList={postList} />
+        </div>
       </div>
     );
   }

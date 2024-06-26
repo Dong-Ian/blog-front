@@ -16,6 +16,13 @@
   padding-right: 40px;
 }
 
+.box_title {
+  padding-left: 37px;
+  margin-bottom: 35px;
+  font-size: 25px;
+  font-weight: 700;
+  color: gray;
+}
 .title {
   margin: 10px 0;
   > p {
