@@ -34,7 +34,7 @@ function App() {
 
         <Route exact path="/account" element={<AccountPage />} />
         <Route exact path="/admin" element={<AdminLandingPage />} />
-        <Route exact path="/admin/edit" element={<AdminPage />} />
+        {/* <Route exact path="/admin/edit" element={<AdminPage />} /> */}
       </Routes>
     </Router>
   );

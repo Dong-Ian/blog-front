@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-
 import LoadAccountFunction from "../../Account/Function/LoadAccountFunction";
+import AdminPage from "./AdminPage"; // AdminPage 컴포넌트 임포트
 
 function AdminLandingPage() {
-  const navigate = useNavigate();
   const [profile, setProfile] = useState(null);
 
   async function LoadAccount() {
@@ -12,7 +10,6 @@ function AdminLandingPage() {
 
     if (result.result) {
       setProfile(result.profileResult);
-
       return;
     }
 
@@ -24,11 +21,11 @@ function AdminLandingPage() {
     if (!profile) {
       LoadAccount();
     }
-
-    if (profile) {
-      navigate("/admin/edit", { state: { profile: profile } });
-    }
   }, [profile]);
+
+  if (profile) {
+    return <AdminPage profile={profile} />;
+  }
 
   return <div>Loading</div>;
 }

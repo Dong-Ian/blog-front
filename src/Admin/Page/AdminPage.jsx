@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useLocation } from "react-router-dom";
 
 import { useRecoilState, useRecoilValue } from "recoil";
@@ -13,9 +13,8 @@ import EditElement from "../Component/EditTitle";
 import EditAccountFunction from "../Function/EditAccountFunction";
 import EditColor from "../Component/EditColor";
 
-function AdminPage() {
+function AdminPage({ profile }) {
   const location = useLocation();
-  const { profile } = location.state || {};
 
   const token = useRecoilValue(tokenState);
 
