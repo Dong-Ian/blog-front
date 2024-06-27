@@ -96,8 +96,9 @@ function AdminPage({ profile }) {
       <>
         <Header />
         <div className={styles.outer_post_box}>
-          <p>관리자 페이지</p>
-
+          <p className={styles.main_title}>관리자 페이지</p>
+          <hr />
+          <p className={styles.title}>프로필 이미지 변경</p>
           <EditProfileImg
             profileImg={profileImg}
             setProfileImg={setProfileImg}
@@ -108,6 +109,7 @@ function AdminPage({ profile }) {
           </div>
 
           <hr />
+          <p className={styles.title}>배경 이미지 변경</p>
           <EditBackgroundImg
             backgroundImg={backgroundImg}
             setBackgroundImg={setBackgroundImg}
@@ -117,6 +119,7 @@ function AdminPage({ profile }) {
             <button onClick={backgroundImgFunction}>배경 사진 변경</button>
           </div>
           <hr />
+          <p className={styles.title}>회원 정보 변경</p>
           <EditElement
             placeholder={profile.userName}
             text="이름"
@@ -157,6 +160,7 @@ function AdminPage({ profile }) {
             <button onClick={EditProfile}>프로필 변경하기</button>
           </div>
           <hr />
+          <p className={styles.title}>대표 색상 변경</p>
           <EditColor
             state={state}
             color={color}

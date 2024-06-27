@@ -30,7 +30,6 @@ function EditProfileImg({ profileImg, setProfileImg, setFormData }) {
 
   return (
     <div className={styles.change_img}>
-      <p>프로필 이미지 변경</p>
       <div className={styles.img}>
         {profileImg != null ? <img alt="" src={profileImg} /> : null}
       </div>

@@ -29,7 +29,6 @@ function EditBackgroundImg({ backgroundImg, setBackgroundImg, setFormData }) {
 
   return (
     <div className={styles.change_img}>
-      <p>배경 이미지 변경</p>
       <div className={styles.img}>
         {backgroundImg != null ? (
           <img src={backgroundImg} alt="" style={{ width: 100, height: 100 }} />
