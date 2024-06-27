@@ -4,7 +4,6 @@ export default async function EditPostFunction({
   postContents,
   isPinned,
 }) {
-  console.log(postTitle);
   const result = await fetch(`${process.env.REACT_APP_API}/admin/post/edit`, {
     method: "POST",
     headers: {
