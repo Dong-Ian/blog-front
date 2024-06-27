@@ -1,5 +1,6 @@
-import PinFunction from "../Function/PinFunction";
 import styles from "../Style/post.module.css";
+
+import PinFunction from "../Function/PinFunction";
 
 function PinButton({ token, postSeq, setChangePinned }) {
   async function Pin() {

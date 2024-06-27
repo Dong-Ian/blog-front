@@ -1,4 +1,5 @@
 import UnPinFunction from "../Function/UnPinFunction";
+
 import styles from "../Style/post.module.css";
 
 function UnPinButton({ token, postSeq, setChangePinned }) {

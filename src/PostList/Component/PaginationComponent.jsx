@@ -1,4 +1,5 @@
 import Pagination from "react-js-pagination";
+
 import styles from "../Style/pagination.module.css";
 
 function PaginationComponent({

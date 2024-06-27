@@ -1,10 +1,11 @@
+import { useEffect } from "react";
+
 import { useRecoilValue } from "recoil";
 import { tokenState } from "../../Utils/Atom";
 
 import EditColorFunction from "../Function/EditColorFunction";
 
 import SketchPicker from "react-color";
-import { useEffect } from "react";
 
 function EditColor({ state, color, setState, setColor }) {
   const token = useRecoilValue(tokenState);

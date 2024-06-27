@@ -4,13 +4,15 @@ import { useLocation } from "react-router-dom";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { ColorState, tokenState } from "../../Utils/Atom";
 
+import styles from "../Style/admin.module.css";
+
 import EditProfileImgFunction from "../Function/EditProfileImgFunction";
 import EditBackgroundImgFunction from "../Function/EditBackgroundImgFunction";
+import EditAccountFunction from "../Function/EditAccountFunction";
 
 import EditProfileImg from "../Component/EditProfileImg";
 import EditBackgroundImg from "../Component/EditBackgroundImg";
 import EditElement from "../Component/EditTitle";
-import EditAccountFunction from "../Function/EditAccountFunction";
 import EditColor from "../Component/EditColor";
 
 function AdminPage({ profile }) {

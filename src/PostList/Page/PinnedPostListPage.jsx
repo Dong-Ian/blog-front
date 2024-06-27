@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 
 import styles from "../Style/postlist.module.css";
 
-import PostList from "../Component/PostList";
-
 import LoadPinnedPostListFunction from "../Function/LoadPinnedPostListFunction";
+
+import PostList from "../Component/PostList";
 import Header from "../../Component/Header";
 import PaginationComponent from "../Component/PaginationComponent";
 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useRecoilState } from "recoil";
 
+import { useRecoilState } from "recoil";
 import { ColorState, isLoggedInState } from "../Utils/Atom";
 
 import styles from "./Style/component.module.css";

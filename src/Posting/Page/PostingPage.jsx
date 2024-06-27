@@ -8,12 +8,12 @@ import styles from "../Style/Posting.module.css";
 
 import PostingFunction from "../Function/PostingFunction";
 import JWTTestFunction from "../../Utils/Function/JWTTestFunction";
+import LoadCategoryFunction from "../Function/LoadCategoryFunction";
 
 import Title from "../Component/Title";
 import Content from "../Component/Content";
 import Catetory from "../Component/Category";
 import Tag from "../Component/Tag";
-import LoadCategoryFunction from "../Function/LoadCategoryFunction";
 import CategoryList from "../Component/CategoryList";
 import Header from "../../Component/Header";
 
