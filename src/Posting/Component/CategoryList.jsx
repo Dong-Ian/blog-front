@@ -3,6 +3,7 @@ function CategoryList({ categoryList, setCategory }) {
     function onClickCategory() {
       setCategory(category);
     }
+
     return (
       <div onClick={onClickCategory} key={index}>
         <p>{category}</p>

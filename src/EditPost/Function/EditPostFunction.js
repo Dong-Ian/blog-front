@@ -20,7 +20,7 @@ export default async function EditPostFunction({
 
   const res = await result.json();
 
-  console.log("EditPostFunction result: %o", res);
+  // console.log("EditPostFunction result: %o", res);
 
   return res;
 }

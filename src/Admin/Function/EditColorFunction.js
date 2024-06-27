@@ -1,5 +1,4 @@
 export default async function EditColorFunction({ token, color }) {
-  console.log(color);
   const result = await fetch(
     `${process.env.REACT_APP_API}/admin/user/profile/color`,
     {

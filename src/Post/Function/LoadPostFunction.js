@@ -11,7 +11,7 @@ export default async function LoadPostFunctioin({ postSeq }) {
 
   const res = await result.json();
 
-  console.log("LoadPostFunction result: %o", res);
+  // console.log("LoadPostFunction result: %o", res);
 
   return res;
 }

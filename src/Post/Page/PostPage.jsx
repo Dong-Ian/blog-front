@@ -47,6 +47,7 @@ function DateRender({ reg, mod, view }) {
     </div>
   );
 }
+
 function PostPage() {
   const { postSeq } = useParams();
   const navigate = useNavigate();

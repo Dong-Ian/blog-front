@@ -15,7 +15,7 @@ export default async function UnPinFunction({ token, postSeq }) {
 
   const res = await result.json();
 
-  console.log("UnPinFunction result: %o", res);
+  // console.log("UnPinFunction result: %o", res);
 
   return res;
 }

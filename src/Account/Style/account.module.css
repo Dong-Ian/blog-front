@@ -1,23 +1,23 @@
 .infoBox {
-  margin-top: 100px;
+  border: 1px solid white;
+  width: 320px;
+  margin: 100px 0 0 0;
   z-index: 0;
   text-align: center;
   position: relative;
-  border: 1px solid white;
-  width: 320px;
 }
 
 /*프로필사진*/
 .profileWrapper {
   z-index: 10;
-}
 
-.profileWrapper > button {
-  border: none;
-  background-color: white;
-  margin: 10px 0 0 0;
-  color: skyblue;
-  font-weight: 500;
+  > button {
+    border: none;
+    background-color: white;
+    margin: 10px 0 0 0;
+    color: skyblue;
+    font-weight: 500;
+  }
 }
 
 .profileImgDiv {
@@ -26,12 +26,12 @@
   height: 170px;
   border-radius: 70%;
   margin: 0 auto;
-}
 
-.profileImgDiv > img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 /*계정 정보*/
@@ -63,15 +63,14 @@
 .tableTitleDiv {
   width: 100px;
   display: flex;
-  margin-left: 20px;
-  margin-right: 30px;
+  margin: 0 30px 0 20px;
   justify-content: center;
-}
 
-.tableTitleDiv > p {
-  font-size: 15px;
-  margin: auto 0;
-  font-weight: 600;
+  > p {
+    font-size: 15px;
+    margin: auto 0;
+    font-weight: 600;
+  }
 }
 
 /*소셜 계정*/
@@ -88,17 +87,17 @@
   width: 45px;
   display: flex;
   height: 30px;
-}
 
-.socialIconDiv > img {
-  height: 20px;
-  margin: auto 0;
+  > img {
+    height: 20px;
+    margin: auto 0;
+  }
 }
 
 .socialIdDiv {
   width: 200px;
   display: flex;
-  margin-left: -10px;
+  margin: 0 0 0 -10px;
 }
 
 .social {
@@ -120,31 +119,29 @@
 
 .authorUserInfoBox {
   background-color: white;
-  padding-bottom: 80px;
+  padding: 0 0 80px 0;
   width: 300px;
-}
 
-.authorUserInfoBox > div > hr {
-  width: 320px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  > div > hr {
+    width: 320px;
+    margin: 20px 0;
+  }
 }
 
 .userInfoBox > div > hr {
   width: 320px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 20px 0;
 }
 
 /*링크*/
 .linkTableDiv {
   display: flex;
   cursor: pointer;
-}
 
-.linkTableDiv img {
-  height: 17px;
-  margin: auto 15px auto 0;
+  img {
+    height: 17px;
+    margin: auto 15px auto 0;
+  }
 }
 
 .personalLink {

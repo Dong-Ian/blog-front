@@ -15,7 +15,7 @@ export default async function PinFunction({ token, postSeq }) {
 
   const res = await result.json();
 
-  console.log("PinFunction result: %o", res);
+  // console.log("PinFunction result: %o", res);
 
   return res;
 }

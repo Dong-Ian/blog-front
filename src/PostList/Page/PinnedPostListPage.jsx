@@ -16,9 +16,9 @@ function PinnedPostListPage() {
   const [totalCount, setTotalCount] = useState(null);
   const [activePage, setActivePage] = useState(1);
 
-  async function LoadCategoryPostList() {
+  async function LoadCategoryPostList({ page }) {
     const result = await LoadPinnedPostListFunction({
-      page: 1,
+      page: page,
       size: 5,
     });
 
@@ -41,7 +41,7 @@ function PinnedPostListPage() {
   }
 
   useEffect(() => {
-    LoadCategoryPostList();
+    LoadCategoryPostList({ page: 1 });
   }, []);
 
   if (postList) {

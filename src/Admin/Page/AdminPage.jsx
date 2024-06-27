@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
 
 import { useRecoilState, useRecoilValue } from "recoil";
 import { ColorState, tokenState } from "../../Utils/Atom";
@@ -17,8 +16,6 @@ import EditColor from "../Component/EditColor";
 import Header from "../../Component/Header";
 
 function AdminPage({ profile }) {
-  const location = useLocation();
-
   const token = useRecoilValue(tokenState);
 
   const [formData, setFormData] = useState(new FormData());

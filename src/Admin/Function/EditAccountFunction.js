@@ -30,7 +30,7 @@ export default async function EditAccountFunction({
 
   const res = await result.json();
 
-  console.log("EditAccountFunction result: %o", res);
+  // console.log("EditAccountFunction result: %o", res);
 
   return res;
 }

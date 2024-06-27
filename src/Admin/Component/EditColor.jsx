@@ -9,7 +9,7 @@ import EditColorFunction from "../Function/EditColorFunction";
 
 import SketchPicker from "react-color";
 
-function EditColor({ state, color, setState, setColor }) {
+function EditColor({ state, setState, setColor }) {
   const token = useRecoilValue(tokenState);
 
   function handleChangeComplete(color) {

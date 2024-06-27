@@ -21,6 +21,7 @@ function TagRender({ tagList }) {
     );
   });
 }
+
 function Tag({ tagList }) {
   return (
     <div className={styles.tag}>

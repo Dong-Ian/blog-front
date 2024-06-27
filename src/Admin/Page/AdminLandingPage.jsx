@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
+
 import LoadAccountFunction from "../../Account/Function/LoadAccountFunction";
+
 import AdminPage from "./AdminPage";
 
 function AdminLandingPage() {

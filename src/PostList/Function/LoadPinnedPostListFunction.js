@@ -11,7 +11,7 @@ export default async function LoadPinnedPostListFunction({ page, size }) {
 
   const res = await result.json();
 
-  console.log("LoadPinnedPostListFunction result: %o", res);
+  // console.log("LoadPinnedPostListFunction result: %o", res);
 
   return res;
 }

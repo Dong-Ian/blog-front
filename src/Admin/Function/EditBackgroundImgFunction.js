@@ -13,5 +13,7 @@ export default async function EditBackgroundImgFunction({ token, formData }) {
 
   const res = await result.json();
 
-  console.log("EditBackgroundImgFunction result: %o", res);
+  // console.log("EditBackgroundImgFunction result: %o", res);
+
+  return;
 }

@@ -14,7 +14,7 @@ export default async function LoadTagPostListFunction({ tag, page, size }) {
 
   const res = await result.json();
 
-  console.log("LoadTagPostListFunction result: %o", res);
+  // console.log("LoadTagPostListFunction result: %o", res);
 
   return res;
 }

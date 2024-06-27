@@ -12,7 +12,7 @@ export default async function DeletePostFunction({ token, postSeq }) {
 
   const res = await result.json();
 
-  console.log("DeletePostFunction result: %o", res);
+  // console.log("DeletePostFunction result: %o", res);
 
   return res;
 }

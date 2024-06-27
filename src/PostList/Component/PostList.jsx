@@ -9,6 +9,7 @@ function CategoryRender({ category }) {
     </div>
   );
 }
+
 function TitleRender({ title }) {
   return (
     <div className={styles.title}>
