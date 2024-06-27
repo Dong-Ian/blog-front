@@ -4,7 +4,7 @@ function CategoryList({ categoryList, setCategory }) {
       setCategory(category);
     }
     return (
-      <div onzClick={onClickCategory} key={index}>
+      <div onClick={onClickCategory} key={index}>
         <p>{category}</p>
       </div>
     );
