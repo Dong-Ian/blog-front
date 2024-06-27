@@ -6,10 +6,11 @@ import { tokenState } from "../../Utils/Atom";
 
 import styles from "../Style/EditPost.module.css";
 
+import EditPostFunction from "../Function/EditPostFunction";
+
 import Title from "../../Posting/Component/Title";
 import Content from "../../Posting/Component/Content";
 import Header from "../../Component/Header";
-import EditPostFunction from "../Function/EditPostFunction";
 
 function EditPostPage({ post }) {
   const navigate = useNavigate();
