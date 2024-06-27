@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import styles from "../Style/postlist.module.css";
 
 import LoadPostListFunction from "../Function/LoadPostListFunction";
@@ -8,6 +10,8 @@ import PaginationComponent from "../Component/PaginationComponent";
 import Header from "../../Component/Header";
 
 function PostListPage() {
+  const navigate = useNavigate();
+
   const [pinnedPostList, setPinnedPostList] = useState(null);
   const [unPinnedPostList, setUnPinnedPostList] = useState(null);
   const [totalCount, setTotalCount] = useState(null);
@@ -16,9 +20,17 @@ function PostListPage() {
   async function LoadPostList({ page }) {
     const result = await LoadPostListFunction({ page, size: 5 });
 
-    setPinnedPostList(result.pinnedPostList);
-    setUnPinnedPostList(result.unpinnedPostList);
-    setTotalCount(Number(result.postCount));
+    if (result.result) {
+      setPinnedPostList(result.pinnedPostList);
+      setUnPinnedPostList(result.unpinnedPostList);
+      setTotalCount(Number(result.postCount));
+
+      return;
+    }
+
+    alert("오류가 발생하였습니다.");
+    navigate("/postlist");
+    return;
   }
 
   function handlePageChange(e) {

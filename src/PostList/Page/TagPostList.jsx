@@ -17,16 +17,18 @@ function TagPostListPage() {
 
   const [postList, setPostList] = useState(null);
   const [totalCount, setTotalCount] = useState(null);
+  const [activePage, setActivePage] = useState(1);
 
-  async function LoadTagPostList() {
+  async function LoadTagPostList({ page }) {
     const result = await LoadTagPostListFunction({
       tag: tag,
-      page: 1,
+      page: page,
       size: 5,
     });
 
     if (result.result) {
       setPostList(result.postList);
+      setTotalCount(result.postCount);
       return;
     }
 
@@ -37,11 +39,12 @@ function TagPostListPage() {
   }
 
   function handlePageChange(e) {
-    LoadTagPostListFunction({ tag: tag, page: e, size: 5 });
+    LoadTagPostList({ page: e });
+    setActivePage(e);
   }
 
   useEffect(() => {
-    LoadTagPostList();
+    LoadTagPostList({ page: 1 });
   }, []);
 
   if (postList) {
@@ -51,11 +54,12 @@ function TagPostListPage() {
         <div className={styles.outer_post_box}>
           <p className={styles.box_title}>{tag}</p>
           <PostList postList={postList} />
-          {/* <PaginationComponent
+          <PaginationComponent
             totalCount={totalCount}
             onChange={handlePageChange}
             itemsCountPerPage={5}
-          /> */}
+            activePage={activePage}
+          />
         </div>
       </div>
     );

@@ -7,6 +7,7 @@ import LoadCategoryPostListFunction from "../Function/LoadCategoryPostListFuncti
 
 import PostList from "../Component/PostList";
 import Header from "../../Component/Header";
+import PaginationComponent from "../Component/PaginationComponent";
 
 function CategoryPostListPage() {
   const location = useLocation();
@@ -15,16 +16,19 @@ function CategoryPostListPage() {
   const { category } = location.state || {};
 
   const [postList, setPostList] = useState(null);
+  const [totalCount, setTotalCount] = useState(null);
+  const [activePage, setActivePage] = useState(1);
 
-  async function LoadCategoryPostList() {
+  async function LoadCategoryPostList({ page }) {
     const result = await LoadCategoryPostListFunction({
       category: category,
-      page: 1,
-      size: 10,
+      page: page,
+      size: 5,
     });
 
     if (result.result) {
       setPostList(result.postList);
+      setTotalCount(result.postCount);
       return;
     }
 
@@ -34,8 +38,13 @@ function CategoryPostListPage() {
     return;
   }
 
+  function handlePageChange(e) {
+    LoadCategoryPostList({ page: e });
+    setActivePage(e);
+  }
+
   useEffect(() => {
-    LoadCategoryPostList();
+    LoadCategoryPostList({ page: 1 });
   }, []);
 
   if (postList) {
@@ -45,6 +54,12 @@ function CategoryPostListPage() {
         <div className={styles.outer_post_box}>
           <p className={styles.box_title}>{category}</p>
           <PostList postList={postList} />
+          <PaginationComponent
+            totalCount={totalCount}
+            onChange={handlePageChange}
+            itemsCountPerPage={5}
+            activePage={activePage}
+          />
         </div>
       </div>
     );
