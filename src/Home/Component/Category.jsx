@@ -1,11 +1,25 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import styles from "../Style/home.module.css";
+
 import LoadCategoryFunction from "../../Posting/Function/LoadCategoryFunction";
 
 function CategoryRender({ categoryList }) {
+  const navigate = useNavigate();
+
   return categoryList.map((category) => {
     return (
       <div>
-        <p>{category}</p>
+        <p
+          onClick={() =>
+            navigate(`/postlist/category/${category}`, {
+              state: { category: category },
+            })
+          }
+        >
+          {category}
+        </p>
       </div>
     );
   });
@@ -27,7 +41,8 @@ function Category() {
 
   if (categoryList) {
     return (
-      <div>
+      <div className={styles.category}>
+        <p>카테고리</p>
         <CategoryRender categoryList={categoryList} />
       </div>
     );
