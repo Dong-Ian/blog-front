@@ -10,6 +10,7 @@ import LoadPostListFunction from "../../PostList/Function/LoadPostListFunction";
 import Header from "../../Component/Header";
 import PostList from "../../PostList/Component/PostList";
 import AccountComponent from "../../Account/Component/AccountComponent";
+import Category from "../Component/Category";
 
 function HomePage() {
   const navigate = useNavigate();
@@ -67,7 +68,6 @@ function HomePage() {
         <div className={styles.accountbox}>
           {userInfo && <AccountComponent userInfo={userInfo} />}
         </div>
-        {/* <div className={styles.box}></div> */}
         <div className={styles.box}>
           <div className={styles.outer_post_box}>
             <div className={styles.pinnedbox}>
@@ -87,6 +87,10 @@ function HomePage() {
               {postList && <PostList postList={postList} />}
             </div>
           </div>
+        </div>
+        <div className={styles.undercategorybox} />
+        <div className={styles.categorybox}>
+          <Category />
         </div>
       </div>
     </>
