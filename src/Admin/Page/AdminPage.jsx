@@ -12,8 +12,9 @@ import EditAccountFunction from "../Function/EditAccountFunction";
 
 import EditProfileImg from "../Component/EditProfileImg";
 import EditBackgroundImg from "../Component/EditBackgroundImg";
-import EditElement from "../Component/EditTitle";
+import EditElement from "../Component/EditElement";
 import EditColor from "../Component/EditColor";
+import Header from "../../Component/Header";
 
 function AdminPage({ profile }) {
   const location = useLocation();
@@ -92,69 +93,78 @@ function AdminPage({ profile }) {
 
   if (profile) {
     return (
-      <div>
-        <p>admin page</p>
-        <p>edit profile img</p>
-        <EditProfileImg
-          profileImg={profileImg}
-          setProfileImg={setProfileImg}
-          setFormData={setFormData}
-        />
-        <button onClick={profileImgFunction}>프로필 사진 변경 확정</button>
+      <>
+        <Header />
+        <div className={styles.outer_post_box}>
+          <p>관리자 페이지</p>
 
-        <p>edit background img</p>
-        <EditBackgroundImg
-          backgroundImg={backgroundImg}
-          setBackgroundImg={setBackgroundImg}
-          setFormData={setFormData2}
-        />
-        <button onClick={backgroundImgFunction}>배경 사진 변경 확정</button>
+          <EditProfileImg
+            profileImg={profileImg}
+            setProfileImg={setProfileImg}
+            setFormData={setFormData}
+          />
+          <div className={styles.change_button}>
+            <button onClick={profileImgFunction}>프로필 사진 변경</button>
+          </div>
 
-        <EditElement
-          placeholder={profile.userName}
-          text="edit name"
-          getter={name}
-          setter={setName}
-        />
-        <EditElement
-          placeholder={profile.title}
-          text="edit title"
-          getter={title}
-          setter={setTitle}
-        />
-        <EditElement
-          placeholder={profile.githubUrl}
-          text="edit githup"
-          getter={githubUrl}
-          setter={setGithubUrl}
-        />
-        <EditElement
-          placeholder={profile.instagram}
-          text="edit instagram"
-          getter={instagram}
-          setter={setInstagram}
-        />
-        <EditElement
-          placeholder={profile.memo}
-          text="edit meno"
-          getter={memo}
-          setter={setMemo}
-        />
-        <EditElement
-          placeholder={profile.personalUrl}
-          text="edit personal url"
-          getter={personalUrl}
-          setter={setPersonalUrl}
-        />
-        <button onClick={EditProfile}>프로필 변경하기</button>
-
-        <EditColor
-          state={state}
-          color={color}
-          setState={setState}
-          setColor={setColor}
-        />
-      </div>
+          <hr />
+          <EditBackgroundImg
+            backgroundImg={backgroundImg}
+            setBackgroundImg={setBackgroundImg}
+            setFormData={setFormData2}
+          />
+          <div className={styles.change_button}>
+            <button onClick={backgroundImgFunction}>배경 사진 변경</button>
+          </div>
+          <hr />
+          <EditElement
+            placeholder={profile.userName}
+            text="이름"
+            getter={name}
+            setter={setName}
+          />
+          <EditElement
+            placeholder={profile.title}
+            text="타이틀"
+            getter={title}
+            setter={setTitle}
+          />
+          <EditElement
+            placeholder={profile.githubUrl}
+            text="GitHub"
+            getter={githubUrl}
+            setter={setGithubUrl}
+          />
+          <EditElement
+            placeholder={profile.instagram}
+            text="Instagram"
+            getter={instagram}
+            setter={setInstagram}
+          />
+          <EditElement
+            placeholder={profile.memo}
+            text="메모"
+            getter={memo}
+            setter={setMemo}
+          />
+          <EditElement
+            placeholder={profile.personalUrl}
+            text="URL"
+            getter={personalUrl}
+            setter={setPersonalUrl}
+          />
+          <div className={styles.change_button}>
+            <button onClick={EditProfile}>프로필 변경하기</button>
+          </div>
+          <hr />
+          <EditColor
+            state={state}
+            color={color}
+            setState={setState}
+            setColor={setColor}
+          />
+        </div>
+      </>
     );
   }
 }

@@ -1,5 +1,7 @@
 import { useRef } from "react";
 
+import styles from "../Style/admin.module.css";
+
 function EditBackgroundImg({ backgroundImg, setBackgroundImg, setFormData }) {
   const fileInputRef = useRef(null);
 
@@ -26,16 +28,22 @@ function EditBackgroundImg({ backgroundImg, setBackgroundImg, setFormData }) {
   }
 
   return (
-    <div>
-      <div>
+    <div className={styles.change_img}>
+      <p>배경 이미지 변경</p>
+      <div className={styles.img}>
         {backgroundImg != null ? (
           <img src={backgroundImg} alt="" style={{ width: 100, height: 100 }} />
         ) : null}
       </div>
 
-      <button onClick={handleEditButtonClick}>사진 선택</button>
-
-      <button onClick={handleDeleteBackground}>삭제</button>
+      <div className={styles.button_div}>
+        <div className={styles.change_button}>
+          <button onClick={handleEditButtonClick}>사진 선택</button>
+        </div>
+        <div className={styles.change_button}>
+          <button onClick={handleDeleteBackground}>삭제</button>
+        </div>
+      </div>
 
       <input
         type="file"

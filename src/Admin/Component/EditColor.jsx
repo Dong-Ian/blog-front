@@ -3,6 +3,8 @@ import { useEffect } from "react";
 import { useRecoilValue } from "recoil";
 import { tokenState } from "../../Utils/Atom";
 
+import styles from "../Style/admin.module.css";
+
 import EditColorFunction from "../Function/EditColorFunction";
 
 import SketchPicker from "react-color";
@@ -35,13 +37,17 @@ function EditColor({ state, color, setState, setColor }) {
   }, []);
 
   return (
-    <div>
-      <SketchPicker
-        color={state.background}
-        onChangeComplete={handleChangeComplete}
-      />
-      <button onClick={onClickEditBtn}>색 수정하기</button>
-    </div>
+    <>
+      <div className={styles.change_color}>
+        <SketchPicker
+          color={state.background}
+          onChangeComplete={handleChangeComplete}
+        />
+      </div>
+      <div className={styles.change_button}>
+        <button onClick={onClickEditBtn}>색 수정하기</button>
+      </div>
+    </>
   );
 }
 
