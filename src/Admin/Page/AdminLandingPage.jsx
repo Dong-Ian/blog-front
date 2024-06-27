@@ -26,8 +26,6 @@ function AdminLandingPage() {
   if (profile) {
     return <AdminPage profile={profile} />;
   }
-
-  return <div>Loading</div>;
 }
 
 export default AdminLandingPage;

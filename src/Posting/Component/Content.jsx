@@ -7,7 +7,7 @@ import styles from "../Style/Posting.module.css";
 
 import ReactQuill from "react-quill";
 
-function Content({ content, setContent, imgUrl, setImgUrl }) {
+function Content({ content, setContent }) {
   const quillRef = useRef();
 
   const imageHandler = () => {
