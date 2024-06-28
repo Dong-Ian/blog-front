@@ -1,27 +1,25 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { useRecoilState, useRecoilValue } from "recoil";
-import { ColorState, tokenState } from "../Utils/Atom";
+import { useRecoilValue } from "recoil";
+import { tokenState } from "../Utils/Atom";
 
 import styles from "./Style/component.module.css";
 
 import LoadAccountFunction from "../Account/Function/LoadAccountFunction";
 import JWTTestFunction from "../Utils/Function/JWTTestFunction";
 
-function AdminHeader() {
+function AdminHeader({ state }) {
   const navigate = useNavigate();
   const token = useRecoilValue(tokenState);
 
   const [title, setTitle] = useState(null);
-  const [color, setColor] = useRecoilState(ColorState);
 
   async function LoadAccount() {
     const result = await LoadAccountFunction();
 
     if (result.result) {
       setTitle(result.profileResult.title);
-      setColor({ background: result.profileResult.color });
     }
 
     return;
@@ -49,7 +47,7 @@ function AdminHeader() {
     return (
       <div
         className={styles.header}
-        style={{ backgroundColor: color.background }}
+        style={{ backgroundColor: state.background }}
       >
         <p>{title}</p>
       </div>

@@ -14,6 +14,7 @@ import EditBackgroundImg from "../Component/EditBackgroundImg";
 import EditElement from "../Component/EditElement";
 import EditColor from "../Component/EditColor";
 import Header from "../../Component/Header";
+import AdminHeader from "../../Component/AdminHeader";
 
 function AdminPage({ profile }) {
   const token = useRecoilValue(tokenState);
@@ -91,7 +92,7 @@ function AdminPage({ profile }) {
   if (profile) {
     return (
       <>
-        <Header />
+        <AdminHeader state={state} />
         <div className={styles.outer_post_box}>
           <p className={styles.main_title}>관리자 페이지</p>
           <hr />
