@@ -1,10 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { useRecoilState } from "recoil";
 import { isLoggedInState, tokenState } from "../../Utils/Atom";
 
+import styles from "../Style/Login.module.css";
+
 import LoginFunction from "../Function/LoginFunction";
+import LoadAccountFunction from "../../Account/Function/LoadAccountFunction";
+
+import Email from "../Component/Email";
+import Password from "../Component/Password";
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -14,6 +20,9 @@ function LoginPage() {
 
   const [token, setToken] = useRecoilState(tokenState);
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(isLoggedInState);
+
+  const [title, setTitle] = useState(null);
+  const [color, setColor] = useState(null);
 
   async function Login(e) {
     e.preventDefault();
@@ -30,41 +39,40 @@ function LoginPage() {
     return;
   }
 
-  function handleEmail(event) {
-    const {
-      target: { value },
-    } = event;
-    setEmail(value);
+  async function LoadAccount() {
+    const result = await LoadAccountFunction();
+
+    if (result.result) {
+      setColor(result.profileResult.color);
+      setTitle(result.profileResult.title);
+
+      return;
+    }
+
+    setColor("#000");
+    setTitle("Archive");
+    return;
   }
 
-  function handlePassword(event) {
-    const {
-      target: { value },
-    } = event;
-    setPassword(value);
-  }
+  useEffect(() => {
+    LoadAccount();
+  }, []);
 
   return (
-    <div>
-      <p>Login</p>
-      <form method="post" onSubmit={Login}>
-        <p>email</p>
+    <div className={styles.login} style={{ backgroundColor: color }}>
+      <div className={styles.title}>
+        <p>Welcome to {title}</p>
+      </div>
+
+      <form className={styles.box} method="post" onSubmit={Login}>
+        <Email email={email} setEmail={setEmail} />
+        <Password password={password} setPassword={setPassword} />
         <input
-          onChange={handleEmail}
-          type="text"
-          name="email"
-          placeholder="이메일"
-          value={email}
+          className={styles.loginBtn}
+          style={{ backgroundColor: color }}
+          type="submit"
+          value="로그인"
         />
-        <p>password</p>
-        <input
-          onChange={handlePassword}
-          type="password"
-          name="password"
-          placeholder="비밀번호"
-          value={password}
-        />
-        <input type="submit" value="로그인" />
       </form>
     </div>
   );
