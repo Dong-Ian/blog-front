@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { useRecoilState, useRecoilValue } from "recoil";
 import { ColorState, tokenState } from "../../Utils/Atom";
@@ -13,7 +13,6 @@ import EditProfileImg from "../Component/EditProfileImg";
 import EditBackgroundImg from "../Component/EditBackgroundImg";
 import EditElement from "../Component/EditElement";
 import EditColor from "../Component/EditColor";
-import Header from "../../Component/Header";
 import AdminHeader from "../../Component/AdminHeader";
 
 function AdminPage({ profile }) {
@@ -22,8 +21,12 @@ function AdminPage({ profile }) {
   const [formData, setFormData] = useState(new FormData());
   const [formData2, setFormData2] = useState(new FormData());
 
-  const [profileImg, setProfileImg] = useState();
-  const [backgroundImg, setBackgroundImg] = useState();
+  const [profileImg, setProfileImg] = useState(
+    profile.images.profileImage || ""
+  );
+  const [backgroundImg, setBackgroundImg] = useState(
+    profile.images.backgroundImage || ""
+  );
 
   const [color, setColor] = useRecoilState(ColorState);
   const [state, setState] = useState(color);

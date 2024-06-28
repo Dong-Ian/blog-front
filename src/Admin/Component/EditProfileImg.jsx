@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 import styles from "../Style/admin.module.css";
 
@@ -27,6 +27,10 @@ function EditProfileImg({ profileImg, setProfileImg, setFormData }) {
     setFormData(new FormData());
     setProfileImg(null);
   }
+
+  useEffect(() => {
+    console.log(profileImg);
+  }, []);
 
   return (
     <div className={styles.change_img}>
