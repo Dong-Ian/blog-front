@@ -8,10 +8,11 @@ import LoadCategoryFunction from "../../Posting/Function/LoadCategoryFunction";
 function CategoryRender({ categoryList }) {
   const navigate = useNavigate();
 
-  return categoryList.map((category) => {
-    return (
-      <div>
+  return (
+    <div>
+      {categoryList.map((category) => (
         <p
+          key={category}
           onClick={() =>
             navigate(`/postlist/category/${category}`, {
               state: { category: category },
@@ -20,9 +21,9 @@ function CategoryRender({ categoryList }) {
         >
           {category}
         </p>
-      </div>
-    );
-  });
+      ))}
+    </div>
+  );
 }
 
 function Category() {

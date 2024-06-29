@@ -49,7 +49,7 @@ function AdminHeader({ state }) {
         className={styles.header}
         style={{ backgroundColor: state.background }}
       >
-        <p>{title}</p>
+        <p onClick={() => navigate("/")}>{title}</p>
       </div>
     );
   }
