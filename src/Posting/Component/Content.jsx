@@ -4,8 +4,11 @@ import { storage } from "../../Firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
 import styles from "../Style/Posting.module.css";
+import quill_styles from "../Style/Quill.module.css";
 
 import ReactQuill, { Quill } from "react-quill";
+import hljs from "highlight.js";
+import "highlight.js/styles/github.css";
 
 function Content({ content, setContent }) {
   const quillRef = useRef();
@@ -17,6 +20,20 @@ function Content({ content, setContent }) {
   const italic = Quill.import("formats/italic");
   italic.tagName = "i";
   Quill.register(italic, true);
+
+  hljs.configure({
+    languages: [
+      "javascript",
+      "ruby",
+      "python",
+      "java",
+      "cpp",
+      "kotlin",
+      "sql",
+      "swift",
+      "c",
+    ],
+  });
 
   const imageHandler = () => {
     const input = document.createElement("input");
@@ -75,6 +92,9 @@ function Content({ content, setContent }) {
         handlers: {
           image: imageHandler,
         },
+      },
+      syntax: {
+        highlight: (text) => hljs.highlightAuto(text).value,
       },
     };
   }, []);
