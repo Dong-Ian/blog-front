@@ -90,7 +90,7 @@ function PostingPage() {
           <Title title={postTitle} setTitle={setPostTitle} />
 
           <Catetory category={category} setCategory={setCategory} />
-          <div className={styles.category_list}>
+          <div className={styles.categorylist}>
             <CategoryList
               categoryList={categoryList}
               setCategory={setCategory}
