@@ -61,8 +61,7 @@ function DateTimeRender({ reg, mod, view }) {
     <div className={styles.date}>
       <p>
         {year}년 {month}월 {day}일 {paddedHour}:{paddedMin}
-        {reg !== mod && <span>(수정됨)</span>}
-        <span> | {view}</span>
+        <span> | 조회수 {view}</span>
       </p>
     </div>
   );
