@@ -34,11 +34,12 @@ function ContentsRender({ contents }) {
   };
 
   const modifiedHtml = applyStyles(htmlString);
+  const truncatedHtml = modifiedHtml.substring(0, 60); // 앞에서부터 60자 자르기
 
   return (
     <div
       className={styles.contents}
-      dangerouslySetInnerHTML={{ __html: modifiedHtml }}
+      dangerouslySetInnerHTML={{ __html: truncatedHtml }}
     />
   );
 }
