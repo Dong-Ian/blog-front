@@ -19,28 +19,20 @@ function TitleRender({ title }) {
 }
 
 function ContentsRender({ contents }) {
-  const htmlString = contents;
+  const cheerio = require("cheerio");
+  const inputText = contents;
 
-  const applyStyles = (html) => {
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(html, "text/html");
-    const images = doc.querySelectorAll("img");
-
-    images.forEach((img) => {
-      img.style.display = "none";
-    });
-
-    return doc.body.innerHTML;
-  };
-
-  const modifiedHtml = applyStyles(htmlString);
-  const truncatedHtml = modifiedHtml.substring(0, 60); // 앞에서부터 60자 자르기
+  const $ = cheerio.load(inputText);
+  const transformedText = $.root().text();
+  const slicedText = transformedText.slice(0, 100);
 
   return (
-    <div
-      className={styles.contents}
-      dangerouslySetInnerHTML={{ __html: truncatedHtml }}
-    />
+    <div className={styles.contents}>
+      <p className={styles.post}>
+        {slicedText}
+        {transformedText.length > 100 ? <> 더보기...</> : <></>}
+      </p>
+    </div>
   );
 }
 
