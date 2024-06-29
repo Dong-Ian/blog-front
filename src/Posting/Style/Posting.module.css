@@ -3,7 +3,7 @@
   position: relative;
   width: 100%;
   max-width: 800px;
-  margin: 150px auto 0 auto;
+  margin: 180px auto 0 auto;
 }
 
 .title {
@@ -13,7 +13,8 @@
     border-width: 0 0 1px;
     height: 40px;
     width: 400px;
-    font-size: 30px;
+    font-size: 35px;
+    font-weight: 700;
     padding: 0 0 10px 10px;
     margin: 0 0 20px 0;
   }
@@ -43,7 +44,6 @@
 }
 
 .categorylist {
-  /* border: 1px solid black; */
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -51,12 +51,10 @@
   width: 90%;
   max-width: 600px;
   margin: 0 0 30px 30px;
-  /* border: 1px solid black; */
 
   > div {
     border: 1px solid black;
     border-radius: 10px;
-
     padding: 5px 10px;
   }
 
@@ -71,7 +69,7 @@
 
   > input {
     border-width: 0 0 1px;
-    margin: 5px 0 0 0;
+    margin: 10px 0 0 0;
     font-size: 15px;
     padding: 0 0 5px 5px;
   }
@@ -84,6 +82,7 @@
 .tag_box {
   display: flex;
   margin: 3px 10px 0 0;
+
   > p {
     font-size: 15px;
     margin: 8px 0 0 0;
@@ -115,6 +114,7 @@
   justify-content: center;
   margin: 0 0 50px 0;
   cursor: pointer;
+
   > button {
     border: none;
     background-color: white;

@@ -99,7 +99,7 @@ function Content({ content, setContent }) {
     <div className={styles.textForm}>
       <ReactQuill
         className={styles.textBox}
-        placeholder="Quill Content"
+        placeholder="내용을 작성해주세요"
         theme="snow"
         ref={quillRef}
         value={content}
