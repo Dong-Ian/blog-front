@@ -8,6 +8,7 @@ import LoadPostListFunction from "../Function/LoadPostListFunction";
 import PostList from "../Component/PostList";
 import PaginationComponent from "../Component/PaginationComponent";
 import Header from "../../Component/Header";
+import BackButton from "../../Component/BackButton";
 
 function PostListPage() {
   const navigate = useNavigate();
@@ -48,6 +49,10 @@ function PostListPage() {
       <>
         <Header />
         <div className={styles.outer_post_box}>
+          <div style={{ marginLeft: "30px" }}>
+            <BackButton />
+          </div>
+
           <p className={styles.box_title}>전체 게시글</p>
           <PostList postList={unPinnedPostList} />
           <PaginationComponent

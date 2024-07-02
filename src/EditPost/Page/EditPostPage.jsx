@@ -14,6 +14,7 @@ import Header from "../../Component/Header";
 import Tag from "../../Posting/Component/Tag";
 import Catetory from "../../Posting/Component/Category";
 import CategoryList from "../../Posting/Component/CategoryList";
+import BackButton from "../../Component/BackButton";
 
 function EditPostPage({ post, categoryList }) {
   const navigate = useNavigate();
@@ -59,6 +60,9 @@ function EditPostPage({ post, categoryList }) {
     <>
       <Header />
       <div className={styles.outer_post_box}>
+        <div style={{ marginLeft: "30px" }}>
+          <BackButton />
+        </div>
         <Title title={title} setTitle={setTitle} />
         <Catetory category={category} setCategory={setCategory} />
         <div className={styles.categorylist}>

@@ -8,6 +8,7 @@ import LoadPinnedPostListFunction from "../Function/LoadPinnedPostListFunction";
 import PostList from "../Component/PostList";
 import Header from "../../Component/Header";
 import PaginationComponent from "../Component/PaginationComponent";
+import BackButton from "../../Component/BackButton";
 
 function PinnedPostListPage() {
   const navigate = useNavigate();
@@ -50,6 +51,10 @@ function PinnedPostListPage() {
       <div>
         <Header />
         <div className={styles.outer_post_box}>
+          <div style={{ marginLeft: "30px" }}>
+            <BackButton />
+          </div>
+
           <p className={styles.box_title}>고정 게시글</p>
           <PostList postList={postList} />
           <PaginationComponent

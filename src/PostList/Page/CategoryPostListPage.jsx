@@ -8,6 +8,7 @@ import LoadCategoryPostListFunction from "../Function/LoadCategoryPostListFuncti
 import PostList from "../Component/PostList";
 import Header from "../../Component/Header";
 import PaginationComponent from "../Component/PaginationComponent";
+import BackButton from "../../Component/BackButton";
 
 function CategoryPostListPage() {
   const location = useLocation();
@@ -53,6 +54,10 @@ function CategoryPostListPage() {
       <div>
         <Header />
         <div className={styles.outer_post_box}>
+          <div style={{ marginLeft: "30px" }}>
+            <BackButton />
+          </div>
+
           <p className={styles.box_title}>{category}</p>
           <PostList postList={postList} />
           <PaginationComponent

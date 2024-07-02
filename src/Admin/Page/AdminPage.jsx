@@ -14,6 +14,7 @@ import EditBackgroundImg from "../Component/EditBackgroundImg";
 import EditElement from "../Component/EditElement";
 import EditColor from "../Component/EditColor";
 import AdminHeader from "../../Component/AdminHeader";
+import BackButton from "../../Component/BackButton";
 
 function AdminPage({ profile }) {
   const token = useRecoilValue(tokenState);
@@ -97,6 +98,7 @@ function AdminPage({ profile }) {
       <>
         <AdminHeader state={state} />
         <div className={styles.outer_post_box}>
+          <BackButton />
           <p className={styles.main_title}>관리자 페이지</p>
           <hr />
           <p className={styles.title}>프로필 이미지 변경</p>

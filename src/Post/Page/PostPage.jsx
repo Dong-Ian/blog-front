@@ -16,6 +16,7 @@ import Tag from "../Component/Tag";
 import Header from "../../Component/Header";
 import EditPostButton from "../Component/EditPostButton";
 import Comment from "../Component/Comment";
+import BackButton from "../../Component/BackButton";
 
 function TitleRender({ title }) {
   return (
@@ -108,6 +109,9 @@ function PostPage() {
         <Header />
         <div className={styles.outer_post_box}>
           <div className={styles.post_box}>
+            <div style={{ marginTop: "16px" }}>
+              <BackButton />
+            </div>
             {post.category !== "NULL" ? (
               <div
                 className={styles.category}

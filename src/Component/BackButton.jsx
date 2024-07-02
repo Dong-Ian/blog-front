@@ -5,7 +5,7 @@ import styles from "./Style/component.module.css";
 function BackButton() {
   const navigate = useNavigate();
   return (
-    <div onClick={() => navigate(-1)}>
+    <div className={styles.backbuton} onClick={() => navigate(-1)}>
       <p>{"<"} 뒤로가기</p>
     </div>
   );

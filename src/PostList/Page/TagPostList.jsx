@@ -8,6 +8,7 @@ import LoadTagPostListFunction from "../Function/LoadTagPostListFunction";
 import PostList from "../Component/PostList";
 import Header from "../../Component/Header";
 import PaginationComponent from "../Component/PaginationComponent";
+import BackButton from "../../Component/BackButton";
 
 function TagPostListPage() {
   const location = useLocation();
@@ -53,6 +54,10 @@ function TagPostListPage() {
       <div>
         <Header />
         <div className={styles.outer_post_box}>
+          <div style={{ marginLeft: "30px" }}>
+            <BackButton />
+          </div>
+
           <p className={styles.box_title}>{tag}</p>
           <PostList postList={postList} />
           <PaginationComponent

@@ -16,6 +16,7 @@ import Catetory from "../Component/Category";
 import Tag from "../Component/Tag";
 import CategoryList from "../Component/CategoryList";
 import Header from "../../Component/Header";
+import BackButton from "../../Component/BackButton";
 
 function PostingPage() {
   const navigate = useNavigate();
@@ -87,6 +88,9 @@ function PostingPage() {
       <>
         <Header />
         <div className={styles.outer_post_box}>
+          <div style={{ marginLeft: "30px" }}>
+            <BackButton />
+          </div>
           <Title title={postTitle} setTitle={setPostTitle} />
 
           <Catetory category={category} setCategory={setCategory} />
