@@ -22,10 +22,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50%;
   background-color: white;
-  border: 1px solid black;
-  transition: all 0.3s;
 
   &:active,
   &.active {
@@ -38,17 +35,11 @@
   &:nth-child(1),
   &:nth-last-child(1) {
     a {
-      align-items: baseline;
       font-size: 13px;
     }
   }
 }
 
-.pagination *.current {
-  background-color: red !important;
-}
-
 .pagination ul > li > a {
-  color: black;
   text-decoration-line: none;
 }

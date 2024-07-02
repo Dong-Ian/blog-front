@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { useRecoilValue } from "recoil";
@@ -50,6 +50,7 @@ function DateRender({ reg, mod, view }) {
 function PostPage() {
   const { postSeq } = useParams();
   const navigate = useNavigate();
+  const commentsEl = useRef(null);
 
   const token = useRecoilValue(tokenState);
   const isLoggedIn = useRecoilValue(isLoggedInState);
@@ -70,6 +71,17 @@ function PostPage() {
 
     return;
   }
+
+  useEffect(() => {
+    const scriptEl = document.createElement("script");
+    scriptEl.async = true;
+    scriptEl.src = "https://utteranc.es/client.js";
+    scriptEl.setAttribute("repo", "Dong-Ian/blog-comments");
+    scriptEl.setAttribute("issue-term", "pathname");
+    scriptEl.setAttribute("theme", "github-light");
+    scriptEl.setAttribute("crossorigin", "anonymous");
+    commentsEl.current?.appendChild(scriptEl);
+  }, [post]);
 
   useEffect(() => {
     LoadPost();
@@ -128,6 +140,7 @@ function PostPage() {
               </div>
             )}
           </div>
+          <div ref={commentsEl} />
         </div>
       </>
     );

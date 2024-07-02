@@ -1,7 +1,8 @@
-import Pagination from "react-js-pagination";
+import { useEffect } from "react";
 
 import styles from "../Style/pagination.module.css";
-import { useEffect } from "react";
+
+import Pagination from "react-js-pagination";
 
 function PaginationComponent({
   totalCount,
@@ -13,6 +14,7 @@ function PaginationComponent({
     const allElements = document.querySelectorAll(`.${styles.pagination} li`);
     allElements.forEach((element) => {
       element.style.backgroundColor = "white";
+      element.style.border = "1px solid black";
       const link = element.querySelector("a");
       if (link) {
         link.style.color = "black";
