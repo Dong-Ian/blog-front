@@ -15,6 +15,7 @@ import PinButton from "../Component/PinButton";
 import Tag from "../Component/Tag";
 import Header from "../../Component/Header";
 import EditPostButton from "../Component/EditPostButton";
+import Comment from "../Component/Comment";
 
 function TitleRender({ title }) {
   return (
@@ -50,7 +51,6 @@ function DateRender({ reg, mod, view }) {
 function PostPage() {
   const { postSeq } = useParams();
   const navigate = useNavigate();
-  const commentsEl = useRef(null);
 
   const token = useRecoilValue(tokenState);
   const isLoggedIn = useRecoilValue(isLoggedInState);
@@ -71,17 +71,6 @@ function PostPage() {
 
     return;
   }
-
-  useEffect(() => {
-    const scriptEl = document.createElement("script");
-    scriptEl.async = true;
-    scriptEl.src = "https://utteranc.es/client.js";
-    scriptEl.setAttribute("repo", "Dong-Ian/blog-comments");
-    scriptEl.setAttribute("issue-term", "pathname");
-    scriptEl.setAttribute("theme", "github-light");
-    scriptEl.setAttribute("crossorigin", "anonymous");
-    commentsEl.current?.appendChild(scriptEl);
-  }, [post]);
 
   useEffect(() => {
     LoadPost();
@@ -140,7 +129,7 @@ function PostPage() {
               </div>
             )}
           </div>
-          <div ref={commentsEl} />
+          <Comment post={post} />
         </div>
       </>
     );
