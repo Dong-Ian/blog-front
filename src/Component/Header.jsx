@@ -38,9 +38,16 @@ function Header() {
           className={styles.header}
           style={{ backgroundColor: color.background }}
         >
+          <div className={styles.leftbox}>
+            {isLoggedIn && (
+              <div onClick={() => navigate("/posting")}>
+                <p>Posting</p>
+              </div>
+            )}
+          </div>
           <p onClick={() => navigate("/")}>{title}</p>
 
-          <div className={styles.box}>
+          <div className={styles.rightbox}>
             {isLoggedIn && (
               <img
                 src={accountIcon}

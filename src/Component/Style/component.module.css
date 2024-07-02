@@ -27,13 +27,30 @@
   }
 }
 
-.box {
+.leftbox {
+  position: fixed;
+  left: 0;
+
+  div {
+    border: 2px solid white;
+    padding: 5px 8px;
+    border-radius: 50px;
+    margin: 8px 0 0 30px;
+    cursor: pointer;
+  }
+
+  p {
+    color: white;
+  }
+}
+
+.rightbox {
   padding: 8px 0 0 0;
   position: fixed;
   right: 40px;
 
   > img {
-    width: 30px;
+    width: 40px;
   }
 }
 
