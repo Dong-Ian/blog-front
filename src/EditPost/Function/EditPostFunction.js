@@ -1,10 +1,12 @@
 export default async function EditPostFunction({
   token,
+  postSeq,
   postTitle,
   postContents,
   isPinned,
+  tags,
 }) {
-  // console.log("postTitle: %o, postContents: %o", postTitle, postContents);
+  console.log("postTitle: %o, postContents: %o", postTitle, postContents);
 
   const result = await fetch(`${process.env.REACT_APP_API}/admin/post/edit`, {
     method: "POST",
@@ -13,10 +15,11 @@ export default async function EditPostFunction({
       Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({
+      postSeq: postSeq,
       postTitle: postTitle,
       postContents: postContents,
-
       isPinned: isPinned,
+      tags: tags,
     }),
   });
 
