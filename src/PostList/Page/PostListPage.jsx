@@ -36,6 +36,7 @@ function PostListPage() {
   function handlePageChange(e) {
     LoadPostList({ page: e });
     setActivePage(e);
+    window.scrollTo(0, 0);
   }
 
   useEffect(() => {

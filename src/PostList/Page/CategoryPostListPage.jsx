@@ -41,6 +41,7 @@ function CategoryPostListPage() {
   function handlePageChange(e) {
     LoadCategoryPostList({ page: e });
     setActivePage(e);
+    window.scrollTo(0, 0);
   }
 
   useEffect(() => {

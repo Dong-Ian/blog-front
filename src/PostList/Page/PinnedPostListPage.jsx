@@ -38,6 +38,7 @@ function PinnedPostListPage() {
   function handlePageChange(e) {
     LoadPinnedPostListFunction({ page: e, size: 5 });
     setActivePage(e);
+    window.scrollTo(0, 0);
   }
 
   useEffect(() => {

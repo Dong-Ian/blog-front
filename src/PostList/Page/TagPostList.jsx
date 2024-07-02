@@ -41,6 +41,7 @@ function TagPostListPage() {
   function handlePageChange(e) {
     LoadTagPostList({ page: e });
     setActivePage(e);
+    window.scrollTo(0, 0);
   }
 
   useEffect(() => {
