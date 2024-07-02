@@ -7,7 +7,7 @@
   right: -3px;
   bottom: 1px;
 
-  height: 75px;
+  height: 40px;
   padding: 1rem;
 
   font-family: "Times New Roman", Times, serif;
@@ -18,7 +18,7 @@
   justify-content: center;
 
   > p {
-    font-size: 50px;
+    font-size: 40px;
     font-weight: bold;
     display: inline;
     text-decoration-line: none;
@@ -33,6 +33,6 @@
   right: 40px;
 
   > img {
-    width: 40px;
+    width: 30px;
   }
 }
