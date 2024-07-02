@@ -6,12 +6,15 @@ export default async function LoadPinnedPostListFunction({ page, size }) {
       headers: {
         "Content-Type": "application/json",
       },
+      body: JSON.stringify({
+        blogId: process.env.REACT_APP_BLOG_ID,
+      }),
     }
   );
 
   const res = await result.json();
 
-  // console.log("LoadPinnedPostListFunction result: %o", res);
+  console.log("LoadPinnedPostListFunction result: %o", res);
 
   return res;
 }

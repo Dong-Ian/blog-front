@@ -6,12 +6,15 @@ export default async function LoadPostListFunction({ page, size }) {
       headers: {
         "Content-Type": "application/json",
       },
+      body: JSON.stringify({
+        blogId: process.env.REACT_APP_BLOG_ID,
+      }),
     }
   );
 
   const res = await result.json();
 
-  // console.log("LoadPostListFunction result: %o", res);
+  console.log("LoadPostListFunction result: %o", res);
 
   return res;
 }

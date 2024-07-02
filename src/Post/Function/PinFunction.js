@@ -9,13 +9,14 @@ export default async function PinFunction({ token, postSeq }) {
       },
       body: JSON.stringify({
         postSeq: postSeq,
+        blogId: process.env.REACT_APP_BLOG_ID,
       }),
     }
   );
 
   const res = await result.json();
 
-  // console.log("PinFunction result: %o", res);
+  console.log("PinFunction result: %o", res);
 
   return res;
 }

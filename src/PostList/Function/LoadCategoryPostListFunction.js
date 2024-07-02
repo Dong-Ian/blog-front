@@ -12,13 +12,14 @@ export default async function LoadCategoryPostListFunction({
       },
       body: JSON.stringify({
         category: category,
+        blogId: process.env.REACT_APP_BLOG_ID,
       }),
     }
   );
 
   const res = await result.json();
 
-  // console.log("LoadCategoryPostListFunction result: %o", res);
+  console.log("LoadCategoryPostListFunction result: %o", res);
 
   return res;
 }

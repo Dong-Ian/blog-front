@@ -9,6 +9,7 @@ export default async function SignUpFunction({ name, email, password }) {
     name: encryptedName,
     email: encryptedEmail,
     password: encryptedPassword,
+    blogId: process.env.REACT_APP_BLOG_ID,
   };
 
   const result = await fetch(`${process.env.REACT_APP_API}/user/signup`, {

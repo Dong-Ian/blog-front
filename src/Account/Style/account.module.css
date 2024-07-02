@@ -74,9 +74,11 @@
 }
 
 /*소셜 계정*/
-.socialTable > p {
-  font-size: 14px;
-  color: gray;
+.socialTable {
+  > p {
+    font-size: 14px;
+    color: gray;
+  }
 }
 
 .socialAccountDiv {
@@ -104,6 +106,12 @@
   font-size: 14px;
   margin: auto 0;
   color: black;
+  transition: 0.1s ease-out;
+}
+
+.social:hover {
+  color: skyblue;
+  transition: 0.1s ease-out;
 }
 
 .nullSocial {
@@ -112,9 +120,11 @@
   margin: auto 0;
 }
 
-.emailDiv > p {
-  font-size: 14px;
-  margin: auto 0;
+.emailDiv {
+  > p {
+    font-size: 14px;
+    margin: auto 0;
+  }
 }
 
 .authorUserInfoBox {
@@ -128,11 +138,12 @@
   }
 }
 
-.userInfoBox > div > hr {
-  width: 320px;
-  margin: 20px 0;
+.userInfoBox {
+  > div > hr {
+    width: 320px;
+    margin: 20px 0;
+  }
 }
-
 /*링크*/
 .linkTableDiv {
   display: flex;
@@ -147,6 +158,13 @@
 .personalLink {
   font-size: 14px;
   margin: 3px 0;
+  color: black;
+  transition: 0.1s ease-out;
+}
+
+.personalLink:hover {
+  color: skyblue;
+  transition: 0.1s ease-out;
 }
 
 .hidden {

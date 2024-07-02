@@ -21,12 +21,22 @@
   font-weight: 700;
   color: gray;
 }
+
 .title {
   margin: 10px 0;
 
   > p {
     font-size: 28px;
     font-weight: 700;
+    color: black;
+    transition: 0.1s ease-out;
+  }
+}
+
+.title:hover {
+  > p {
+    color: skyblue;
+    transition: 0.1s ease-out;
   }
 }
 

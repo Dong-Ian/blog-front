@@ -4,11 +4,14 @@ export default async function LoadAccountFunction() {
     headers: {
       "Content-Type": "application/json",
     },
+    body: JSON.stringify({
+      blogId: process.env.REACT_APP_BLOG_ID,
+    }),
   });
 
   const res = await result.json();
 
-  // console.log("LoadAccountFunction result: %o", res);
+  console.log("LoadAccountFunction result: %o", res);
 
   return res;
 }
