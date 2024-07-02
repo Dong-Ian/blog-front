@@ -34,7 +34,7 @@ function HomePage() {
   async function LoadPostList() {
     const result = await LoadPostListFunction({ page: 1, size: 5 });
     if (result.result) {
-      setPostList(result.unpinnedPostList);
+      setPostList(result.unpinnedPostList || []);
 
       return;
     }
@@ -46,7 +46,7 @@ function HomePage() {
   async function LoadPinnedPostList() {
     const result = await LoadPinnedPostListFunction({ page: 1, size: 3 });
     if (result.result) {
-      setPinnedPostList(result.pinnedPostList);
+      setPinnedPostList(result.pinnedPostList || []);
 
       return;
     }
@@ -61,40 +61,57 @@ function HomePage() {
     LoadPostList();
   }, []);
 
-  return (
-    <>
-      <Header />
-      <div className={styles.container}>
-        <div className={styles.accountbox}>
-          {userInfo && <AccountComponent userInfo={userInfo} />}
-        </div>
-        <div className={styles.box}>
-          <div className={styles.outer_post_box}>
-            <div className={styles.pinnedbox}>
-              <div
-                className={styles.btn}
-                onClick={() => navigate("/postlist/pinned")}
-              >
-                고정글 {">"}
-              </div>
+  if (postList && pinnedPostList) {
+    return (
+      <>
+        <Header />
+        <div className={styles.container}>
+          <div className={styles.accountbox}>
+            {userInfo && <AccountComponent userInfo={userInfo} />}
+          </div>
+          <div className={styles.box}>
+            <div className={styles.outer_post_box}>
+              <div className={styles.pinnedbox}>
+                <div
+                  className={styles.btn}
+                  onClick={() => navigate("/postlist/pinned")}
+                >
+                  고정글 {">"}
+                </div>
 
-              {pinnedPostList && <PostList postList={pinnedPostList} />}
-            </div>
-            <div className={styles.unpinnedbox}>
-              <div className={styles.btn} onClick={() => navigate("/postlist")}>
-                최신글 {">"}
+                {pinnedPostList.length != 0 ? (
+                  <PostList postList={pinnedPostList} />
+                ) : (
+                  <div className={styles.nullpost}>
+                    등록된 게시글이 없습니다
+                  </div>
+                )}
               </div>
-              {postList && <PostList postList={postList} />}
+              <div className={styles.unpinnedbox}>
+                <div
+                  className={styles.btn}
+                  onClick={() => navigate("/postlist")}
+                >
+                  최신글 {">"}
+                </div>
+                {postList.length != 0 ? (
+                  <PostList postList={postList} />
+                ) : (
+                  <div className={styles.nullpost}>
+                    등록된 게시글이 없습니다
+                  </div>
+                )}
+              </div>
             </div>
           </div>
+          <div className={styles.undercategorybox} />
+          <div className={styles.categorybox}>
+            <Category />
+          </div>
         </div>
-        <div className={styles.undercategorybox} />
-        <div className={styles.categorybox}>
-          <Category />
-        </div>
-      </div>
-    </>
-  );
+      </>
+    );
+  }
 }
 
 export default HomePage;

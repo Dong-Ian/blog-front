@@ -70,7 +70,7 @@ function PostingPage() {
     const result = await LoadCategoryFunction();
 
     if (result.result) {
-      setCategoryList(result.categoryList);
+      setCategoryList(result.categoryList || []);
       return;
     }
 

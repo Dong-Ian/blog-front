@@ -22,8 +22,8 @@ function PostListPage() {
     const result = await LoadPostListFunction({ page, size: 5 });
 
     if (result.result) {
-      setPinnedPostList(result.pinnedPostList);
-      setUnPinnedPostList(result.unpinnedPostList);
+      setPinnedPostList(result.pinnedPostList || []);
+      setUnPinnedPostList(result.unpinnedPostList || []);
       setTotalCount(Number(result.postCount));
 
       return;
@@ -54,13 +54,19 @@ function PostListPage() {
           </div>
 
           <p className={styles.box_title}>전체 게시글</p>
-          <PostList postList={unPinnedPostList} />
-          <PaginationComponent
-            totalCount={totalCount}
-            onChange={handlePageChange}
-            itemsCountPerPage={5}
-            activePage={activePage}
-          />
+          {unPinnedPostList.length != 0 ? (
+            <>
+              <PostList postList={unPinnedPostList} />
+              <PaginationComponent
+                totalCount={totalCount}
+                onChange={handlePageChange}
+                itemsCountPerPage={5}
+                activePage={activePage}
+              />
+            </>
+          ) : (
+            <div className={styles.nullpost}>등록된 게시글이 없습니다</div>
+          )}
         </div>
       </>
     );

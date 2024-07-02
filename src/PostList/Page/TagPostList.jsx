@@ -28,7 +28,7 @@ function TagPostListPage() {
     });
 
     if (result.result) {
-      setPostList(result.postList);
+      setPostList(result.postList || []);
       setTotalCount(result.postCount);
       return;
     }

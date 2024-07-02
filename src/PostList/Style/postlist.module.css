@@ -6,6 +6,11 @@
   margin: 150px auto 0 auto;
 }
 
+.nullpost {
+  margin: 0 0 0 40px;
+  font-size: 17px;
+}
+
 .postlist_box {
   width: 90%;
   max-width: 800px;

@@ -24,7 +24,7 @@ function PinnedPostListPage() {
     });
 
     if (result.result) {
-      setPostList(result.pinnedPostList);
+      setPostList(result.pinnedPostList || []);
       setTotalCount(result.postCount);
 
       return;
@@ -56,13 +56,19 @@ function PinnedPostListPage() {
           </div>
 
           <p className={styles.box_title}>고정 게시글</p>
-          <PostList postList={postList} />
-          <PaginationComponent
-            totalCount={totalCount}
-            onChange={handlePageChange}
-            itemsCountPerPage={5}
-            activePage={activePage}
-          />
+          {postList.length != 0 ? (
+            <>
+              <PostList postList={postList} />
+              <PaginationComponent
+                totalCount={totalCount}
+                onChange={handlePageChange}
+                itemsCountPerPage={5}
+                activePage={activePage}
+              />
+            </>
+          ) : (
+            <div className={styles.nullpost}>등록된 게시글이 없습니다</div>
+          )}
         </div>
       </div>
     );

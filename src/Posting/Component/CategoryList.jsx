@@ -1,5 +1,3 @@
-import styles from "../Style/Posting.module.css";
-
 function CategoryList({ categoryList, setCategory }) {
   return categoryList.map((category, index) => {
     function onClickCategory() {

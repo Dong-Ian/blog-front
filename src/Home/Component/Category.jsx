@@ -8,22 +8,26 @@ import LoadCategoryFunction from "../../Posting/Function/LoadCategoryFunction";
 function CategoryRender({ categoryList }) {
   const navigate = useNavigate();
 
-  return (
-    <div>
-      {categoryList.map((category) => (
-        <p
-          key={category}
-          onClick={() =>
-            navigate(`/postlist/category/${category}`, {
-              state: { category: category },
-            })
-          }
-        >
-          {category}
-        </p>
-      ))}
-    </div>
-  );
+  if (categoryList.length != 0) {
+    return (
+      <div>
+        {categoryList.map((category) => (
+          <p
+            key={category}
+            onClick={() =>
+              navigate(`/postlist/category/${category}`, {
+                state: { category: category },
+              })
+            }
+          >
+            {category}
+          </p>
+        ))}
+      </div>
+    );
+  } else {
+    return <div className={styles.nullpost2}>등록된 카테고리가 없습니다.</div>;
+  }
 }
 
 function Category() {
@@ -33,7 +37,7 @@ function Category() {
     const result = await LoadCategoryFunction();
 
     if (result.result) {
-      setCatgoryList(result.categoryList);
+      setCatgoryList(result.categoryList || []);
     }
   }
   useEffect(() => {

@@ -5,6 +5,16 @@
   margin: 0 auto;
 }
 
+.nullpost {
+  margin: 0 0 30px 30px;
+  font-size: 17px;
+}
+
+.nullpost2 {
+  margin: 30px 0 10px 0;
+  font-size: 17px;
+}
+
 .pinnedbox {
   border: 1px solid black;
   border-radius: 10px;

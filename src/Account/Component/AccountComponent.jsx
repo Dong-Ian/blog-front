@@ -4,7 +4,7 @@ import styles from "../Style/account.module.css";
 
 import githubIcon from "../../Utils/Asset/github-mark.png";
 import instagramIcon from "../../Utils/Asset/instagram.webp";
-import defaultProfileImg from "../../Utils/Asset/person_white.png";
+import defaultProfileImg from "../../Utils/Asset/nullprofile.webp";
 import linkImg from "../../Utils/Asset/link.png";
 
 function AccountComponent({ userInfo }) {
@@ -15,7 +15,7 @@ function AccountComponent({ userInfo }) {
       <div className={styles.infoBox}>
         <div className={styles.profileWrapper}>
           <div className={styles.profileImgDiv}>
-            {profileImg !== undefined ? (
+            {profileImg !== "" ? (
               <img alt="" src={profileImg} />
             ) : (
               <img alt="" src={defaultProfileImg} />
@@ -41,14 +41,14 @@ function AccountComponent({ userInfo }) {
             <p>소셜 정보</p>
           </div>
           <div className={styles.socialTable}>
-            {userInfo.github !== "" ? (
+            {userInfo.github !== null ? (
               <Link to={githubUrl} style={{ textDecoration: "none" }}>
                 <AccountRender img={githubIcon} account={userInfo.githubUrl} />
               </Link>
             ) : (
               <AccountRender img={githubIcon} account={userInfo.githubUrl} />
             )}
-            {userInfo.instagram !== "" ? (
+            {userInfo.instagram !== null ? (
               <Link to={instagramUrl} style={{ textDecoration: "none" }}>
                 <AccountRender
                   img={instagramIcon}
@@ -56,10 +56,7 @@ function AccountComponent({ userInfo }) {
                 />
               </Link>
             ) : (
-              <AccountRender
-                img={instagramIcon}
-                account={"@" + userInfo.instagram}
-              />
+              <AccountRender img={instagramIcon} account={userInfo.instagram} />
             )}
           </div>
         </div>
@@ -77,7 +74,7 @@ function AccountComponent({ userInfo }) {
           {account != null ? (
             <p className={styles.social}>{account}</p>
           ) : (
-            <p className={styles.nullSocial}>등록된 소셜 정보가 없습니다</p>
+            <p className={styles.nullSocial}>소셜 정보가 없습니다</p>
           )}
         </div>
       </div>
@@ -122,30 +119,34 @@ function AccountComponent({ userInfo }) {
             <p>링크</p>
           </div>
           <div>
-            {!isUrlWithProtocol(userInfo.personalUrl) ? (
-              <div className={styles.linkTableDiv}>
-                <img alt="" src={linkImg} />
-                <p
-                  onClick={() => {
-                    window.open("https://" + userInfo.personalUrl);
-                  }}
-                  className={styles.personalLink}
-                >
-                  {getDomainFromUrl(userInfo.personalUrl)}
-                </p>
-              </div>
+            {userInfo.personalUrl ? (
+              !isUrlWithProtocol(userInfo.personalUrl) ? (
+                <div className={styles.linkTableDiv}>
+                  <img alt="" src={linkImg} />
+                  <p
+                    onClick={() => {
+                      window.open("https://" + userInfo.personalUrl);
+                    }}
+                    className={styles.personalLink}
+                  >
+                    {getDomainFromUrl(userInfo.personalUrl)}
+                  </p>
+                </div>
+              ) : (
+                <div className={styles.linkTableDiv}>
+                  <img alt="" src={linkImg} />
+                  <p
+                    onClick={() => {
+                      window.open(userInfo.personalUrl);
+                    }}
+                    className={styles.personalLink}
+                  >
+                    {getDomainFromUrl(userInfo.personalUrl)}
+                  </p>
+                </div>
+              )
             ) : (
-              <div className={styles.linkTableDiv}>
-                <img alt="" src={linkImg} />
-                <p
-                  onClick={() => {
-                    window.open(userInfo.personalUrl);
-                  }}
-                  className={styles.personalLink}
-                >
-                  {getDomainFromUrl(userInfo.personalUrl)}
-                </p>
-              </div>
+              <p className={styles.nullSocial}>등록된 링크가 없습니다</p>
             )}
           </div>
         </div>

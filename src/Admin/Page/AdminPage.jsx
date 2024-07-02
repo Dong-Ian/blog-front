@@ -112,16 +112,7 @@ function AdminPage({ profile }) {
           </div>
 
           <hr />
-          <p className={styles.title}>배경 이미지 변경</p>
-          <EditBackgroundImg
-            backgroundImg={backgroundImg}
-            setBackgroundImg={setBackgroundImg}
-            setFormData={setFormData2}
-          />
-          <div className={styles.change_button}>
-            <button onClick={backgroundImgFunction}>배경 사진 변경</button>
-          </div>
-          <hr />
+
           <p className={styles.title}>회원 정보 변경</p>
           <EditElement
             placeholder={profile.userName}
