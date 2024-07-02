@@ -1,4 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useRecoilValue } from "recoil";
+import { isLoggedInState } from "./Utils/Atom";
+
 import HomePage from "./Home/Page/HomePage";
 import LoginPage from "./Login/Page/LoginPage";
 import SignUpPage from "./SignUp/Page/SignUpPage";
@@ -11,11 +14,11 @@ import TagPostListPage from "./PostList/Page/TagPostList";
 import PostPage from "./Post/Page/PostPage";
 import PostingPage from "./Posting/Page/PostingPage";
 
-import AccountPage from "./Account/Page/AccountPage";
 import AdminLandingPage from "./Admin/Page/AdminLandingPage";
 import EditPostLandingPage from "./EditPost/Page/EditPostLandingPage";
 
 function App() {
+  const isLoggedIn = useRecoilValue(isLoggedInState);
   return (
     <Router>
       <Routes>
@@ -33,11 +36,21 @@ function App() {
         <Route exact path="/postlist/tag/:tag" element={<TagPostListPage />} />
 
         <Route exact path="/post/:postSeq" element={<PostPage />} />
-        <Route exact path="/posting" element={<PostingPage />} />
-        <Route exact path="/edit/:postSeq" element={<EditPostLandingPage />} />
 
-        <Route exact path="/account" element={<AccountPage />} />
-        <Route exact path="/admin" element={<AdminLandingPage />} />
+        {isLoggedIn && (
+          <Route exact path="/posting" element={<PostingPage />} />
+        )}
+        {isLoggedIn && (
+          <Route
+            exact
+            path="/edit/:postSeq"
+            element={<EditPostLandingPage />}
+          />
+        )}
+
+        {isLoggedIn && (
+          <Route exact path="/admin" element={<AdminLandingPage />} />
+        )}
       </Routes>
     </Router>
   );
