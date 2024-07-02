@@ -7,9 +7,7 @@ function EditPostButton({ postSeq }) {
 
   return (
     <div className={styles.btn}>
-      <button onClick={() => navitage(`/edit/${postSeq}`)}>
-        게시글 수정하기
-      </button>
+      <button onClick={() => navitage(`/edit/${postSeq}`)}>수정</button>
     </div>
   );
 }

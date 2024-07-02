@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { useRecoilValue } from "recoil";
@@ -72,6 +72,32 @@ function PostPage() {
     return;
   }
 
+  function AdminButtonRender() {
+    return (
+      <>
+        {isLoggedIn && (
+          <div className={styles.btn_box}>
+            <DeleteButton token={token} postSeq={postSeq} />
+            <EditPostButton postSeq={postSeq} />
+            {post.isPinned === "1" ? (
+              <UnPinButton
+                token={token}
+                postSeq={postSeq}
+                setChangePinned={setChangePinned}
+              />
+            ) : (
+              <PinButton
+                token={token}
+                postSeq={postSeq}
+                setChangePinned={setChangePinned}
+              />
+            )}
+          </div>
+        )}
+      </>
+    );
+  }
+
   useEffect(() => {
     LoadPost();
   }, [changePinned]);
@@ -104,31 +130,13 @@ function PostPage() {
               mod={post.modDate}
               view={post.viewed}
             />
-
+            <AdminButtonRender />
             <hr className={styles.hr} />
             <Contents post={post} />
             <hr className={styles.hr} />
-
-            {isLoggedIn && (
-              <div className={styles.btn_box}>
-                <DeleteButton token={token} postSeq={postSeq} />
-                {post.isPinned === "1" ? (
-                  <UnPinButton
-                    token={token}
-                    postSeq={postSeq}
-                    setChangePinned={setChangePinned}
-                  />
-                ) : (
-                  <PinButton
-                    token={token}
-                    postSeq={postSeq}
-                    setChangePinned={setChangePinned}
-                  />
-                )}
-                <EditPostButton postSeq={postSeq} />
-              </div>
-            )}
+            <AdminButtonRender />
           </div>
+
           <Comment post={post} />
         </div>
       </>

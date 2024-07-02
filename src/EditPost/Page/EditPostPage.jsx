@@ -1,5 +1,5 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
 
 import { useRecoilValue } from "recoil";
 import { tokenState } from "../../Utils/Atom";
@@ -20,7 +20,7 @@ function EditPostPage({ post, categoryList }) {
 
   const token = useRecoilValue(tokenState);
 
-  const [postSeq, setPostSeq] = useState(post.postSeq);
+  const postSeq = post.postSeq;
   const [title, setTitle] = useState(post.postTitle || "");
   const [content, setContent] = useState(post.postContents || "");
   const [category, setCategory] = useState(post.category || "");
@@ -37,6 +37,7 @@ function EditPostPage({ post, categoryList }) {
         postContents: content,
         isPinned: isPinned,
         tags: tags,
+        category: category,
       });
 
       if (result.result) {
@@ -54,9 +55,6 @@ function EditPostPage({ post, categoryList }) {
     return;
   }
 
-  useEffect(() => {
-    console.log(post);
-  }, []);
   return (
     <>
       <Header />

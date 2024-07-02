@@ -25,7 +25,7 @@ function DeleteButton({ token, postSeq }) {
 
   return (
     <div className={styles.btn}>
-      <button onClick={DeletePost}>글 삭제하기</button>
+      <button onClick={DeletePost}>삭제</button>
     </div>
   );
 }
