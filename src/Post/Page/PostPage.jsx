@@ -7,6 +7,7 @@ import { isLoggedInState, tokenState } from "../../Utils/Atom";
 import styles from "../Style/post.module.css";
 
 import LoadPostFunctioin from "../Function/LoadPostFunction";
+import LoadAccountFunction from "../../Account/Function/LoadAccountFunction";
 
 import Contents from "../Component/Contents";
 import DeleteButton from "../Component/DeleteButton";
@@ -17,6 +18,7 @@ import Header from "../../Component/Header";
 import EditPostButton from "../Component/EditPostButton";
 import Comment from "../Component/Comment";
 import BackButton from "../../Component/BackButton";
+import AccountComponent from "../../Account/Component/AccountComponent";
 
 function TitleRender({ title }) {
   return (
@@ -50,6 +52,38 @@ function DateRender({ reg, view }) {
   );
 }
 
+function AdminButtonRender({
+  isLoggedIn,
+  token,
+  postSeq,
+  post,
+  setChangePinned,
+}) {
+  return (
+    <>
+      {isLoggedIn && (
+        <div className={styles.btn_box}>
+          <DeleteButton token={token} postSeq={postSeq} />
+          <EditPostButton postSeq={postSeq} />
+          {post.isPinned === "1" ? (
+            <UnPinButton
+              token={token}
+              postSeq={postSeq}
+              setChangePinned={setChangePinned}
+            />
+          ) : (
+            <PinButton
+              token={token}
+              postSeq={postSeq}
+              setChangePinned={setChangePinned}
+            />
+          )}
+        </div>
+      )}
+    </>
+  );
+}
+
 function PostPage() {
   const { postSeq } = useParams();
   const navigate = useNavigate();
@@ -57,8 +91,22 @@ function PostPage() {
   const token = useRecoilValue(tokenState);
   const isLoggedIn = useRecoilValue(isLoggedInState);
 
+  const [userInfo, setUserInfo] = useState(null);
   const [post, setPost] = useState(null);
   const [changePinned, setChangePinned] = useState(false);
+
+  async function LoadUserInfo() {
+    const result = await LoadAccountFunction();
+
+    if (result.result) {
+      setUserInfo(result.profileResult);
+
+      return;
+    }
+
+    alert("사용자 정보를 불러오지 못했습니다.");
+    return;
+  }
 
   async function LoadPost() {
     const result = await LoadPostFunctioin({ postSeq });
@@ -74,34 +122,9 @@ function PostPage() {
     return;
   }
 
-  function AdminButtonRender() {
-    return (
-      <>
-        {isLoggedIn && (
-          <div className={styles.btn_box}>
-            <DeleteButton token={token} postSeq={postSeq} />
-            <EditPostButton postSeq={postSeq} />
-            {post.isPinned === "1" ? (
-              <UnPinButton
-                token={token}
-                postSeq={postSeq}
-                setChangePinned={setChangePinned}
-              />
-            ) : (
-              <PinButton
-                token={token}
-                postSeq={postSeq}
-                setChangePinned={setChangePinned}
-              />
-            )}
-          </div>
-        )}
-      </>
-    );
-  }
-
   useEffect(() => {
     LoadPost();
+    LoadUserInfo();
   }, [changePinned]);
 
   if (post) {
@@ -109,6 +132,9 @@ function PostPage() {
       <>
         <Header />
         <div className={styles.outer_post_box}>
+          <div className={styles.accountbox}>
+            {userInfo && <AccountComponent userInfo={userInfo} />}
+          </div>
           <div className={styles.post_box}>
             <div style={{ marginTop: "16px" }}>
               <BackButton />
@@ -131,11 +157,23 @@ function PostPage() {
             <TitleRender title={post.postTitle} />
             <Tag tagList={post.tags} />
             <DateRender reg={post.regDate} view={post.viewed} />
-            <AdminButtonRender />
+            <AdminButtonRender
+              isLoggedIn={isLoggedIn}
+              token={token}
+              postSeq={postSeq}
+              post={post}
+              setChangePinned={setChangePinned}
+            />
             <hr className={styles.hr} />
             <Contents post={post} />
             <hr className={styles.hr} />
-            <AdminButtonRender />
+            <AdminButtonRender
+              isLoggedIn={isLoggedIn}
+              token={token}
+              postSeq={postSeq}
+              post={post}
+              setChangePinned={setChangePinned}
+            />
           </div>
 
           <Comment post={post} />

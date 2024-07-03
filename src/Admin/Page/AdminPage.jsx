@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { useRecoilState, useRecoilValue } from "recoil";
 import { ColorState, tokenState } from "../../Utils/Atom";
@@ -6,7 +6,6 @@ import { ColorState, tokenState } from "../../Utils/Atom";
 import styles from "../Style/admin.module.css";
 
 import EditProfileImgFunction from "../Function/EditProfileImgFunction";
-import EditBackgroundImgFunction from "../Function/EditBackgroundImgFunction";
 import EditAccountFunction from "../Function/EditAccountFunction";
 
 import EditProfileImg from "../Component/EditProfileImg";
