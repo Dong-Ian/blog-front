@@ -73,7 +73,6 @@ ul[data-checked="false"] li::before {
 
 ul[data-checked="true"] {
   list-style-type: none;
-  /* color: red;  */
   margin-left: 0px;
 }
 

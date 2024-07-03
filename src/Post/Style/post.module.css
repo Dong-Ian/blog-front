@@ -8,7 +8,7 @@
 
 .post_box {
   margin-top: 100px;
-  padding: 30px;
+  padding: 20px;
 }
 
 .category {
@@ -51,7 +51,7 @@
 }
 
 .contents {
-  margin: 50px 0 50px 30px;
+  margin: 50px 0 50px 0;
   width: 100%;
 
   img {
