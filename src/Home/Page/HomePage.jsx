@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 import styles from "../Style/home.module.css";
 
@@ -61,9 +62,10 @@ function HomePage() {
     LoadPostList();
   }, []);
 
-  if (postList && pinnedPostList) {
+  if (userInfo && postList && pinnedPostList) {
     return (
       <>
+        <Helmet title={userInfo.title} />
         <Header />
         <div className={styles.container}>
           <div className={styles.accountbox}>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 import styles from "../Style/postlist.module.css";
 
@@ -61,9 +62,10 @@ function PostListPage() {
     LoadUserInfo();
   }, []);
 
-  if (pinnedPostList || unPinnedPostList) {
+  if (userInfo && pinnedPostList && unPinnedPostList) {
     return (
-      <>
+      <div>
+        <Helmet title={userInfo.title} />
         <Header />
         <div className={styles.outer_post_box}>
           <div style={{ marginLeft: "30px" }}>
@@ -87,7 +89,7 @@ function PostListPage() {
             <div className={styles.nullpost}>등록된 게시글이 없습니다</div>
           )}
         </div>
-      </>
+      </div>
     );
   }
 }

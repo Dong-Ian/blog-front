@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 import { useRecoilValue } from "recoil";
 import { isLoggedInState, tokenState } from "../../Utils/Atom";
@@ -130,6 +131,7 @@ function PostPage() {
   if (post) {
     return (
       <>
+        <Helmet title={post.postTitle} />
         <Header />
         <div className={styles.outer_post_box}>
           <div className={styles.accountbox}>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 import styles from "../Style/postlist.module.css";
 
@@ -62,9 +63,10 @@ function PinnedPostListPage() {
     LoadUserInfo();
   }, []);
 
-  if (postList) {
+  if (userInfo && postList) {
     return (
       <div>
+        <Helmet title={userInfo.title} />
         <Header />
         <div className={styles.outer_post_box}>
           <div style={{ marginLeft: "30px" }}>

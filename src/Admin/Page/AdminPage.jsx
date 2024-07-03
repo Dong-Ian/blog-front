@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 
 import { useRecoilState, useRecoilValue } from "recoil";
 import { ColorState, tokenState } from "../../Utils/Atom";
@@ -75,6 +76,7 @@ function AdminPage({ profile }) {
   if (profile) {
     return (
       <>
+        <Helmet title="Admin" />
         <AdminHeader state={state} />
         <div className={styles.outer_post_box}>
           <BackButton />

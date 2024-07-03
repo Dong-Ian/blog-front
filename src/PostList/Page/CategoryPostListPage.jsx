@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 import styles from "../Style/postlist.module.css";
 
@@ -66,9 +67,10 @@ function CategoryPostListPage() {
     LoadUserInfo();
   }, []);
 
-  if (postList) {
+  if (userInfo && postList) {
     return (
       <div>
+        <Helmet title={userInfo.title} />
         <Header />
         <div className={styles.outer_post_box}>
           <div style={{ marginLeft: "30px" }}>

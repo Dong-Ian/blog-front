@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 import { useRecoilState, useRecoilValue } from "recoil";
 import { isLoggedInState, tokenState } from "../../Utils/Atom";
@@ -104,6 +105,7 @@ function PostingPage() {
   if (categoryList) {
     return (
       <>
+        <Helmet title="Posting" />
         <Header />
         <div className={styles.outer_post_box}>
           <div style={{ marginLeft: "30px" }}>

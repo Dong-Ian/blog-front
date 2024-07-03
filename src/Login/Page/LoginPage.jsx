@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 import { useRecoilState } from "recoil";
 import { isLoggedInState, tokenState } from "../../Utils/Atom";
@@ -59,22 +60,25 @@ function LoginPage() {
   }, []);
 
   return (
-    <div className={styles.login} style={{ backgroundColor: color }}>
-      <div className={styles.title}>
-        <p>Welcome to {title}</p>
-      </div>
+    <>
+      <Helmet title="Login" />
+      <div className={styles.login} style={{ backgroundColor: color }}>
+        <div className={styles.title}>
+          <p>Welcome to {title}</p>
+        </div>
 
-      <form className={styles.box} method="post" onSubmit={Login}>
-        <Email email={email} setEmail={setEmail} />
-        <Password password={password} setPassword={setPassword} />
-        <input
-          className={styles.loginBtn}
-          style={{ backgroundColor: color }}
-          type="submit"
-          value="로그인"
-        />
-      </form>
-    </div>
+        <form className={styles.box} method="post" onSubmit={Login}>
+          <Email email={email} setEmail={setEmail} />
+          <Password password={password} setPassword={setPassword} />
+          <input
+            className={styles.loginBtn}
+            style={{ backgroundColor: color }}
+            type="submit"
+            value="로그인"
+          />
+        </form>
+      </div>
+    </>
   );
 }
 
