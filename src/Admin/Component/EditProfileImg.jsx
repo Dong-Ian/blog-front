@@ -39,12 +39,8 @@ function EditProfileImg({ profileImg, setProfileImg, setFormData }) {
       </div>
 
       <div className={styles.button_div}>
-        <div className={styles.change_button}>
-          <button onClick={handleEditButtonClick}>사진 선택</button>
-        </div>
-        <div className={styles.change_button}>
-          <button onClick={handleDeleteProfile}>삭제</button>
-        </div>
+        <button onClick={handleEditButtonClick}>사진 선택</button>
+        <button onClick={handleDeleteProfile}>사진 삭제</button>
       </div>
 
       <input

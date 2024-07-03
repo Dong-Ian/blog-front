@@ -10,7 +10,6 @@ import EditBackgroundImgFunction from "../Function/EditBackgroundImgFunction";
 import EditAccountFunction from "../Function/EditAccountFunction";
 
 import EditProfileImg from "../Component/EditProfileImg";
-import EditBackgroundImg from "../Component/EditBackgroundImg";
 import EditElement from "../Component/EditElement";
 import EditColor from "../Component/EditColor";
 import AdminHeader from "../../Component/AdminHeader";
@@ -20,13 +19,9 @@ function AdminPage({ profile }) {
   const token = useRecoilValue(tokenState);
 
   const [formData, setFormData] = useState(new FormData());
-  const [formData2, setFormData2] = useState(new FormData());
 
   const [profileImg, setProfileImg] = useState(
     profile.images.profileImage || ""
-  );
-  const [backgroundImg, setBackgroundImg] = useState(
-    profile.images.backgroundImage || ""
   );
 
   const [color, setColor] = useRecoilState(ColorState);
@@ -51,21 +46,6 @@ function AdminPage({ profile }) {
     }
 
     alert("프로필 사진을 변경하지 못했습니다.");
-    return;
-  }
-
-  async function backgroundImgFunction() {
-    const result = await EditBackgroundImgFunction({
-      token: token,
-      formData: formData2,
-    });
-
-    if (result.result) {
-      alert("배경 사진 변경이 완료되었습니다.");
-      return;
-    }
-
-    alert("베경 사진을 변경하지 못했습니다.");
     return;
   }
 
@@ -111,7 +91,7 @@ function AdminPage({ profile }) {
             <button onClick={profileImgFunction}>프로필 사진 변경</button>
           </div>
 
-          <hr />
+          <hr className={styles.hr} />
 
           <p className={styles.title}>회원 정보 변경</p>
           <EditElement
@@ -151,9 +131,9 @@ function AdminPage({ profile }) {
             setter={setPersonalUrl}
           />
           <div className={styles.change_button}>
-            <button onClick={EditProfile}>프로필 변경하기</button>
+            <button onClick={EditProfile}>회원 정보 변경</button>
           </div>
-          <hr />
+          <hr className={styles.hr} />
           <p className={styles.title}>대표 색상 변경</p>
           <EditColor
             state={state}

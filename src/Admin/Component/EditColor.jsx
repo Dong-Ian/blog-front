@@ -45,7 +45,7 @@ function EditColor({ state, setState, setColor }) {
         />
       </div>
       <div className={styles.change_button}>
-        <button onClick={onClickEditBtn}>색 수정하기</button>
+        <button onClick={onClickEditBtn}>대표 색상 수정</button>
       </div>
     </div>
   );
