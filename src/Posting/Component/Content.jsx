@@ -7,7 +7,9 @@ import styles from "../Style/Posting.module.css";
 import quill_styles from "../Style/Quill.module.css";
 
 import ReactQuill, { Quill } from "react-quill";
+import ImageResize from "quill-image-resize";
 import hljs from "highlight.js";
+
 import "highlight.js/styles/atom-one-dark-reasonable.css";
 
 function Content({ content, setContent }) {
@@ -54,6 +56,8 @@ function Content({ content, setContent }) {
     ],
   });
 
+  Quill.register("modules/ImageResize", ImageResize);
+
   const imageHandler = () => {
     const input = document.createElement("input");
     input.setAttribute("type", "file");
@@ -88,19 +92,19 @@ function Content({ content, setContent }) {
     return {
       toolbar: {
         container: [
-          ["bold", "italic", "underline", "strike"], // toggled buttons
+          ["bold", "italic", "underline", "strike"],
           ["blockquote", "code-block"],
           ["link", "image"],
 
-          [{ header: 1 }, { header: 2 }], // custom button values
+          [{ header: 1 }, { header: 2 }],
           [{ list: "ordered" }, { list: "bullet" }, { list: "check" }],
-          [{ indent: "-1" }, { indent: "+1" }], // outdent/indent
+          [{ indent: "-1" }, { indent: "+1" }],
 
-          [{ color: [] }, { background: [] }], // dropdown with defaults from theme
+          [{ color: [] }, { background: [] }],
           [{ font: [] }],
           [{ align: [] }],
 
-          ["clean"], // remove formatting button
+          ["clean"],
         ],
         handlers: {
           image: imageHandler,
@@ -108,6 +112,9 @@ function Content({ content, setContent }) {
       },
       syntax: {
         highlight: (text) => hljs.highlightAuto(text).value,
+      },
+      ImageResize: {
+        parchment: Quill.import("parchment"),
       },
     };
   }, []);
