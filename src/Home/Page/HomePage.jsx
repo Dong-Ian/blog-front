@@ -104,7 +104,7 @@ function HomePage() {
               </div>
             </div>
           </div>
-          <div className={styles.undercategorybox} />
+
           <div className={styles.categorybox}>
             <Category />
           </div>
