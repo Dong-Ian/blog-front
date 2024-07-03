@@ -9,14 +9,30 @@ import PostList from "../Component/PostList";
 import PaginationComponent from "../Component/PaginationComponent";
 import Header from "../../Component/Header";
 import BackButton from "../../Component/BackButton";
+import LoadAccountFunction from "../../Account/Function/LoadAccountFunction";
+import AccountComponent from "../../Account/Component/AccountComponent";
 
 function PostListPage() {
   const navigate = useNavigate();
 
+  const [userInfo, setUserInfo] = useState(null);
   const [pinnedPostList, setPinnedPostList] = useState(null);
   const [unPinnedPostList, setUnPinnedPostList] = useState(null);
   const [totalCount, setTotalCount] = useState(null);
   const [activePage, setActivePage] = useState(1);
+
+  async function LoadUserInfo() {
+    const result = await LoadAccountFunction();
+
+    if (result.result) {
+      setUserInfo(result.profileResult);
+
+      return;
+    }
+
+    alert("사용자 정보를 불러오지 못했습니다.");
+    return;
+  }
 
   async function LoadPostList({ page }) {
     const result = await LoadPostListFunction({ page, size: 5 });
@@ -42,6 +58,7 @@ function PostListPage() {
 
   useEffect(() => {
     LoadPostList({ page: 1 });
+    LoadUserInfo();
   }, []);
 
   if (pinnedPostList || unPinnedPostList) {
@@ -52,7 +69,9 @@ function PostListPage() {
           <div style={{ marginLeft: "30px" }}>
             <BackButton />
           </div>
-
+          <div className={styles.accountbox}>
+            {userInfo && <AccountComponent userInfo={userInfo} />}
+          </div>
           <p className={styles.box_title}>전체 게시글</p>
           {unPinnedPostList.length != 0 ? (
             <>
