@@ -30,7 +30,11 @@ function ContentsRender({ contents }) {
     <div className={styles.contents}>
       <p className={styles.post}>
         {slicedText}
-        {transformedText.length > 100 ? <> 더보기...</> : <></>}
+        {transformedText.length > 100 ? (
+          <span className={styles.more}> 더보기...</span>
+        ) : (
+          <></>
+        )}
       </p>
     </div>
   );

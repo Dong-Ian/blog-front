@@ -114,6 +114,7 @@ function PostPage() {
 
     if (result.result) {
       setPost(result.postList);
+
       return;
     }
 

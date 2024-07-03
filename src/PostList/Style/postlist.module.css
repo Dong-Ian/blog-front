@@ -52,6 +52,11 @@
   max-width: 700px;
 }
 
+.more {
+  color: gray;
+  margin: 0 0 0 10px;
+  font-size: 14px;
+}
 .date > p {
   font-size: 12px;
   color: gray;
