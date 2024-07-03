@@ -26,8 +26,9 @@ function TitleRender({ title }) {
   );
 }
 
-function DateRender({ reg, mod, view }) {
+function DateRender({ reg, view }) {
   const date = new Date(reg);
+  date.setHours(date.getHours() + 9);
 
   const year = date.getFullYear();
   const month = date.getMonth() + 1;
@@ -129,11 +130,7 @@ function PostPage() {
 
             <TitleRender title={post.postTitle} />
             <Tag tagList={post.tags} />
-            <DateRender
-              reg={post.regDate}
-              mod={post.modDate}
-              view={post.viewed}
-            />
+            <DateRender reg={post.regDate} view={post.viewed} />
             <AdminButtonRender />
             <hr className={styles.hr} />
             <Contents post={post} />

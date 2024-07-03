@@ -36,8 +36,9 @@ function ContentsRender({ contents }) {
   );
 }
 
-function DateTimeRender({ reg, mod, view }) {
+function DateTimeRender({ reg, view }) {
   const date = new Date(reg);
+  date.setHours(date.getHours() + 9);
 
   const year = date.getFullYear();
   const month = date.getMonth() + 1;
@@ -77,11 +78,7 @@ function PostList({ postList }) {
           <TitleRender title={post.postTitle} />
           <ContentsRender contents={post.postContents} />
 
-          <DateTimeRender
-            reg={post.regDate}
-            mod={post.modDate}
-            view={post.viewed}
-          />
+          <DateTimeRender reg={post.regDate} view={post.viewed} />
         </div>
 
         <hr className={index != postList.length - 1 ? styles.hr : styles.hr2} />
