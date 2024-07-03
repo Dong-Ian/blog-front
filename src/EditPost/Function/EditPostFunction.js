@@ -7,6 +7,15 @@ export default async function EditPostFunction({
   tags,
   category,
 }) {
+  console.log(
+    "postSeq: %o, postTitle: %o, postContents: %o, isPinned: %o, tags: %o, category: %o",
+    postSeq,
+    postTitle,
+    postContents,
+    isPinned,
+    tags,
+    category
+  );
   const result = await fetch(`${process.env.REACT_APP_API}/admin/post/edit`, {
     method: "POST",
     headers: {
@@ -25,7 +34,7 @@ export default async function EditPostFunction({
 
   const res = await result.json();
 
-  // console.log("EditPostFunction result: %o", res);
+  console.log("EditPostFunction result: %o", res);
 
   return res;
 }

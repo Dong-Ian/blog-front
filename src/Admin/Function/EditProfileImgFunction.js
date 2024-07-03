@@ -11,9 +11,9 @@ export default async function EditProfileImgFunction({ token, formData }) {
     }
   );
 
-  const res = await result.json();
+  // const res = await result.json();
 
   // console.log("EditProfileImgFunction result: %o", res);
 
-  return;
+  // return;
 }

@@ -8,7 +8,7 @@ import quill_styles from "../Style/Quill.module.css";
 
 import ReactQuill, { Quill } from "react-quill";
 import hljs from "highlight.js";
-import "highlight.js/styles/github.css";
+import "highlight.js/styles/atom-one-dark-reasonable.css";
 
 function Content({ content, setContent }) {
   const quillRef = useRef();
@@ -20,6 +20,25 @@ function Content({ content, setContent }) {
   const italic = Quill.import("formats/italic");
   italic.tagName = "i";
   Quill.register(italic, true);
+
+  const size = Quill.import("attributors/style/size");
+  size.whitelist = [
+    "8px",
+    "9px",
+    "10px",
+    "12px",
+    "14px",
+    "16px",
+    "20px",
+    "24px",
+    "32px",
+    "42px",
+    "54px",
+    "68px",
+    "84px",
+    "98px",
+  ];
+  Quill.register(size, true);
 
   hljs.configure({
     languages: [
@@ -76,8 +95,6 @@ function Content({ content, setContent }) {
           [{ header: 1 }, { header: 2 }], // custom button values
           [{ list: "ordered" }, { list: "bullet" }, { list: "check" }],
           [{ indent: "-1" }, { indent: "+1" }], // outdent/indent
-
-          [{ size: ["small", false, "large", "huge"] }], // custom dropdown
 
           [{ color: [] }, { background: [] }], // dropdown with defaults from theme
           [{ font: [] }],

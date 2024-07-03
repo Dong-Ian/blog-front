@@ -17,20 +17,13 @@
 
 .pagination li {
   list-style: none;
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
+  border-radius: 8px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: white;
-
-  &:active,
-  &.active {
-    background-color: black;
-    > a {
-      color: white;
-    }
-  }
 
   &:nth-child(1),
   &:nth-last-child(1) {
