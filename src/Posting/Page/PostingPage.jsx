@@ -32,6 +32,24 @@ function PostingPage() {
   const [categoryList, setCategoryList] = useState([]);
 
   async function Posting() {
+    if (postTitle === "") {
+      alert("제목을 입력해주세요.");
+
+      return;
+    }
+
+    if (postContents === "") {
+      alert("내용을 입력해주세요.");
+
+      return;
+    }
+
+    if (category === "") {
+      alert("카테고리를 선택해주세요.");
+
+      return;
+    }
+
     const result = await PostingFunction({
       token: token,
       postTitle: postTitle,
