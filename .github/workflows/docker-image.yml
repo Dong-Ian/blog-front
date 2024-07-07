@@ -3,7 +3,7 @@ name: Docker Image Upload
 # branch master일 때만 액션 실행
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "main" ]
 
 jobs:
   push-image-to-docker-hub:  # job name
