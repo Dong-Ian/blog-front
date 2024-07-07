@@ -11,7 +11,5 @@ export default async function LoadAccountFunction() {
 
   const res = await result.json();
 
-  console.log("LoadAccountFunction result: %o", res);
-
   return res;
 }

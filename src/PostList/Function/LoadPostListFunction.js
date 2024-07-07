@@ -14,7 +14,5 @@ export default async function LoadPostListFunction({ page, size }) {
 
   const res = await result.json();
 
-  console.log("LoadPostListFunction result: %o", res);
-
   return res;
 }

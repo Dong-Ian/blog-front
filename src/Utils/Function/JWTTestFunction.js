@@ -9,7 +9,5 @@ export default async function JWTTestFunction({ token }) {
 
   const res = await result.json();
 
-  // console.log("JWTTestFunctioin result: %o", res);
-
   return res;
 }

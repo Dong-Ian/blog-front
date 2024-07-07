@@ -32,10 +32,6 @@ function EditColor({ state, setState, setColor }) {
     return;
   }
 
-  useEffect(() => {
-    console.log(state);
-  }, []);
-
   return (
     <div className={styles.change_color}>
       <div>

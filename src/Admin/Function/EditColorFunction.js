@@ -15,7 +15,5 @@ export default async function EditColorFunction({ token, color }) {
 
   const res = await result.json();
 
-  console.log("EditColorFunction result: %o", res);
-
   return res;
 }

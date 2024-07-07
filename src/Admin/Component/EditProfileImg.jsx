@@ -6,7 +6,6 @@ function EditProfileImg({ profileImg, setProfileImg, setFormData }) {
   const fileInputRef = useRef(null);
 
   const handleEditButtonClick = () => {
-    console.log("click");
     fileInputRef.current.click();
   };
 
@@ -27,10 +26,6 @@ function EditProfileImg({ profileImg, setProfileImg, setFormData }) {
     setFormData(new FormData());
     setProfileImg(null);
   }
-
-  useEffect(() => {
-    console.log(profileImg);
-  }, []);
 
   return (
     <div className={styles.change_img}>

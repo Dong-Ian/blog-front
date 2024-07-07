@@ -15,5 +15,5 @@ export default async function EditProfileImgFunction({ token, formData }) {
 
   // console.log("EditProfileImgFunction result: %o", res);
 
-  // return;
+  return;
 }

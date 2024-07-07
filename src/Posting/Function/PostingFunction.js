@@ -28,7 +28,5 @@ export default async function PostingFunction({
 
   const res = await result.json();
 
-  // console.log("PostingFunction result: %o", res);
-
   return res;
 }

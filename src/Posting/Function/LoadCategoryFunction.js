@@ -14,7 +14,5 @@ export default async function LoadCategoryFunction() {
 
   const res = await result.json();
 
-  console.log("LoadCategoryFunction result: %o", res);
-
   return res;
 }

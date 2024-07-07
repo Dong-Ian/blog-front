@@ -22,7 +22,5 @@ export default async function SignUpFunction({ name, email, password }) {
 
   const res = await result.json();
 
-  // console.log("SignUpFunction result: %o", res);
-
   return res;
 }

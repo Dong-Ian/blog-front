@@ -19,7 +19,5 @@ export default async function LoadCategoryPostListFunction({
 
   const res = await result.json();
 
-  console.log("LoadCategoryPostListFunction result: %o", res);
-
   return res;
 }
