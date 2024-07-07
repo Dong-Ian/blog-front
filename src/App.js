@@ -24,7 +24,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<HomePage />} />
         <Route exact path="/login" element={<LoginPage />} />
-        <Route exact path="/signup" element={<SignUpPage />} />
+        {/* <Route exact path="/signup" element={<SignUpPage />} /> */}
 
         <Route exact path="/postlist" element={<PostListPage />} />
         <Route exact path="/postlist/pinned" element={<PinnedPostListPage />} />
