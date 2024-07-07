@@ -45,8 +45,8 @@ function Header() {
               </div>
             )}
           </div>
-          <p onClick={() => navigate("/")}>비전공자의 개발새발일기</p>
-          {/* <p onClick={() => navigate("/")}>{title}</p> */}
+          {/* <p onClick={() => navigate("/")}>비전공자의 개발새발일기</p> */}
+          <p onClick={() => navigate("/")}>{title}</p>
 
           <div className={styles.rightbox}>
             {isLoggedIn && (
