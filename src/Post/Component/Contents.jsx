@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import styles from "../Style/post.module.css";
 import hljs from "highlight.js";
-import "highlight.js/styles/vs2015.css";
+import "highlight.js/styles/monokai.css";
 
 function Contents({ post }) {
   const htmlString = post.postContents;
@@ -9,6 +9,13 @@ function Contents({ post }) {
   const applyStyles = (html) => {
     const parser = new DOMParser();
     const doc = parser.parseFromString(html, "text/html");
+
+    Array.from(doc.body.querySelectorAll("h1, h2")).map((el, index) => {
+      const level = el.tagName === "H1" ? 1 : 2;
+      const id = `${el.tagName.toLowerCase()}-${index}`;
+      el.id = id;
+      return { text: el.textContent, id, level };
+    });
 
     const preElements = doc.body.querySelectorAll("pre.ql-syntax");
     preElements.forEach((preElement) => {

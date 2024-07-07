@@ -9,8 +9,8 @@
   height: 40px;
   padding: 1rem;
 
-  /* font-family: "Times New Roman", Times, serif; */
-  font-family: "Dongle", sans-serif;
+  font-family: "Times New Roman", Times, serif;
+  /* font-family: "Dongle", sans-serif; */
   font-weight: bold;
   z-index: 1;
   justify-content: space-between;

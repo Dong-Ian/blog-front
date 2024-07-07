@@ -20,6 +20,7 @@ import EditPostButton from "../Component/EditPostButton";
 import Comment from "../Component/Comment";
 import BackButton from "../../Component/BackButton";
 import AccountComponent from "../../Account/Component/AccountComponent";
+import HeaderTagList from "../Component/HeaderTagList";
 
 function TitleRender({ title }) {
   return (
@@ -134,6 +135,9 @@ function PostPage() {
       <>
         <Helmet title={post.postTitle} />
         <Header />
+        <div>
+          <HeaderTagList post={post} />
+        </div>
         <div className={styles.outer_post_box}>
           <div className={styles.accountbox}>
             {userInfo && <AccountComponent userInfo={userInfo} />}
