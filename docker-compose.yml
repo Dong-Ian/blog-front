@@ -1,0 +1,22 @@
+---
+version: '3.7'
+services:
+  front:
+    image: ${REGISTRY_URL}
+    # build:
+    #   context: .
+    #   dockerfile: ./Dockerfile
+    container_name: blog_ian_front
+    expose:
+      - 3000
+    networks:
+      - proxy
+    env_file:
+      - .env
+    restart: unless-stopped
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - .env:/home/node/.env.production
+networks:
+  proxy:
+    external: true
