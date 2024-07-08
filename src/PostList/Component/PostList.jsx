@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
+import cheerio from "cheerio";
+
 import styles from "../Style/postlist.module.css";
 
 function CategoryRender({ category }) {
@@ -19,11 +21,25 @@ function TitleRender({ title }) {
 }
 
 function ContentsRender({ contents }) {
-  const cheerio = require("cheerio");
   const inputText = contents;
-
   const $ = cheerio.load(inputText);
-  const transformedText = $.root().text();
+
+  let transformedText = "";
+  const traverse = (node) => {
+    node.contents().each((index, child) => {
+      if (child.type === "text") {
+        transformedText += $(child).text();
+      } else if (child.type === "tag") {
+        traverse($(child));
+        transformedText += " ";
+      }
+    });
+  };
+
+  traverse($.root());
+
+  transformedText = transformedText.replace(/\s+/g, " ").trim();
+
   const slicedText = transformedText.slice(0, 100);
 
   return (
@@ -32,9 +48,7 @@ function ContentsRender({ contents }) {
         {slicedText}
         {transformedText.length > 100 ? (
           <span className={styles.more}> 더보기...</span>
-        ) : (
-          <></>
-        )}
+        ) : null}
       </p>
     </div>
   );
