@@ -8,6 +8,7 @@ import quill_styles from "../Style/Quill.module.css";
 
 import ReactQuill, { Quill } from "react-quill";
 import ImageResize from "quill-image-resize";
+
 import hljs from "highlight.js";
 
 import "highlight.js/styles/atom-one-dark-reasonable.css";
@@ -22,25 +23,6 @@ function Content({ content, setContent }) {
   const italic = Quill.import("formats/italic");
   italic.tagName = "i";
   Quill.register(italic, true);
-
-  const size = Quill.import("attributors/style/size");
-  size.whitelist = [
-    "8px",
-    "9px",
-    "10px",
-    "12px",
-    "14px",
-    "16px",
-    "20px",
-    "24px",
-    "32px",
-    "42px",
-    "54px",
-    "68px",
-    "84px",
-    "98px",
-  ];
-  Quill.register(size, true);
 
   hljs.configure({
     languages: [
@@ -94,7 +76,7 @@ function Content({ content, setContent }) {
         container: [
           ["bold", "italic", "underline", "strike"],
           ["blockquote", "code-block"],
-          ["link", "image"],
+          ["link", "image", "video"],
 
           [{ header: 1 }, { header: 2 }],
           [{ list: "ordered" }, { list: "bullet" }, { list: "check" }],
