@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
-import { useRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import { isLoggedInState, tokenState } from "../../Utils/Atom";
 
 import styles from "../Style/Login.module.css";
@@ -19,8 +19,8 @@ function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const [token, setToken] = useRecoilState(tokenState);
-  const [isLoggedIn, setIsLoggedIn] = useRecoilState(isLoggedInState);
+  const setToken = useSetRecoilState(tokenState);
+  const setIsLoggedIn = useSetRecoilState(isLoggedInState);
 
   const [title, setTitle] = useState(null);
   const [color, setColor] = useState(null);

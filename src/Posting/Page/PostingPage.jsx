@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import { isLoggedInState, tokenState } from "../../Utils/Atom";
 
 import styles from "../Style/Posting.module.css";
@@ -24,7 +24,7 @@ function PostingPage() {
   const navigate = useNavigate();
 
   const token = useRecoilValue(tokenState);
-  const [isLoggedIn, setIsLoggedIn] = useRecoilState(isLoggedInState);
+  const setIsLoggedIn = useSetRecoilState(isLoggedInState);
 
   const [postTitle, setPostTitle] = useState("");
   const [postContents, setPostContents] = useState("");

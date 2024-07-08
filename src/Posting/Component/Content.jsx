@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 
 import { storage } from "../../Firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
