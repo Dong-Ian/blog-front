@@ -177,6 +177,7 @@ function PostPage() {
           </div>
 
           <Comment post={post} />
+          <div className={styles.comment} />
         </div>
       </>
     );
