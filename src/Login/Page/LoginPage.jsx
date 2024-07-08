@@ -66,17 +66,18 @@ function LoginPage() {
         <div className={styles.title}>
           <p>Welcome to {title}</p>
         </div>
-
-        <form className={styles.box} method="post" onSubmit={Login}>
-          <Email email={email} setEmail={setEmail} />
-          <Password password={password} setPassword={setPassword} />
-          <input
-            className={styles.loginBtn}
-            style={{ backgroundColor: color }}
-            type="submit"
-            value="로그인"
-          />
-        </form>
+        <div className={styles.outer_box}>
+          <form className={styles.box} method="post" onSubmit={Login}>
+            <Email email={email} setEmail={setEmail} />
+            <Password password={password} setPassword={setPassword} />
+            <input
+              className={styles.loginBtn}
+              style={{ backgroundColor: color }}
+              type="submit"
+              value="로그인"
+            />
+          </form>
+        </div>
       </div>
     </>
   );
