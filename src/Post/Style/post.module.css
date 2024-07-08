@@ -91,7 +91,7 @@
   margin-top: 20px;
 
   > ul {
-    /* list-style: square; */
+    list-style: none;
     padding: 0;
   }
 
@@ -108,7 +108,7 @@
 
 .h2Item {
   font-size: 13px;
-  margin-left: -3px;
+  /* margin-left: -3px; */
   cursor: pointer;
 }
 
