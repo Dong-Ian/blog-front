@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 import { storage } from "../../Firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
@@ -22,6 +22,15 @@ function Content({ content, setContent }) {
   const italic = Quill.import("formats/italic");
   italic.tagName = "i";
   Quill.register(italic, true);
+
+  const BlockEmbed = Quill.import("blots/block/embed");
+
+  class DividerBlot extends BlockEmbed {
+    static blotName = "divider";
+    static tagName = "hr";
+  }
+
+  Quill.register(DividerBlot);
 
   hljs.configure({
     languages: [
@@ -74,7 +83,7 @@ function Content({ content, setContent }) {
       toolbar: {
         container: [
           ["bold", "italic", "underline", "strike"],
-          ["blockquote", "code-block"],
+          ["blockquote", "code-block", "divider"],
           ["link", "image", "video"],
 
           [{ header: 1 }, { header: 2 }],

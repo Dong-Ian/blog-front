@@ -18,6 +18,7 @@ import Tag from "../Component/Tag";
 import CategoryList from "../Component/CategoryList";
 import Header from "../../Component/Header";
 import BackButton from "../../Component/BackButton";
+import Preview from "../Component/Preview";
 
 function PostingPage() {
   const navigate = useNavigate();
@@ -108,24 +109,32 @@ function PostingPage() {
         <Helmet title="Posting" />
         <Header />
         <div className={styles.outer_post_box}>
-          <div style={{ marginLeft: "30px" }}>
-            <BackButton />
-          </div>
-          <Title title={postTitle} setTitle={setPostTitle} />
+          <div className={styles.post_box}>
+            <div style={{ marginLeft: "30px" }}>
+              <BackButton />
+            </div>
+            <Title title={postTitle} setTitle={setPostTitle} />
 
-          <Catetory category={category} setCategory={setCategory} />
-          <div className={styles.categorylist}>
-            <CategoryList
-              categoryList={categoryList}
-              setCategory={setCategory}
-            />
-          </div>
+            <Catetory category={category} setCategory={setCategory} />
+            <div className={styles.categorylist}>
+              <CategoryList
+                categoryList={categoryList}
+                setCategory={setCategory}
+              />
+            </div>
 
-          <Tag tag={tags} setTag={setTags} />
-          <Content content={postContents} setContent={setPostContents} />
-          <div className={styles.button}>
-            <button onClick={Posting}>글 작성하기</button>
+            <Tag tag={tags} setTag={setTags} />
+            <Content content={postContents} setContent={setPostContents} />
+            <div className={styles.button}>
+              <button onClick={Posting}>글 작성하기</button>
+            </div>
           </div>
+          {/* <Preview
+            title={postTitle}
+            category={category}
+            tag={tags}
+            contents={postContents}
+          /> */}
         </div>
       </>
     );

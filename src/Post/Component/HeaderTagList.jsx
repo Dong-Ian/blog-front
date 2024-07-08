@@ -34,7 +34,7 @@ function HeaderTagList({ post }) {
     <>
       {headings.length > 0 && (
         <div className={styles.headingList}>
-          <h2>Headings</h2>
+          <h2>{post.postTitle}</h2>
           <ul>
             {headings.map(({ text, id, level }, index) => (
               <li

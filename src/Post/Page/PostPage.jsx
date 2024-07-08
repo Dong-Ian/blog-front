@@ -21,14 +21,7 @@ import Comment from "../Component/Comment";
 import BackButton from "../../Component/BackButton";
 import AccountComponent from "../../Account/Component/AccountComponent";
 import HeaderTagList from "../Component/HeaderTagList";
-
-function TitleRender({ title }) {
-  return (
-    <div className={styles.title}>
-      <p>{title}</p>
-    </div>
-  );
-}
+import Title from "../Component/Title";
 
 function DateRender({ reg, view }) {
   const date = new Date(reg);
@@ -161,7 +154,7 @@ function PostPage() {
               <div className={styles.category}></div>
             )}
 
-            <TitleRender title={post.postTitle} />
+            <Title title={post.postTitle} />
             <Tag tagList={post.tags} />
             <DateRender reg={post.regDate} view={post.viewed} />
             <AdminButtonRender
