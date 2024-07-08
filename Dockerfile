@@ -17,6 +17,8 @@ COPY --from=base /app/node_modules ./node_modules
 
 COPY . .
 
+COPY ./public/$FAVICON_FILE.ico ./public/favicon.ico
+
 RUN pnpm build
 
 
@@ -33,6 +35,8 @@ RUN adduser --system --uid 1001 nextjs
 COPY --from=builder --chown=nextjs:nodejs /app/node_modules ./node_modules
 COPY --from=builder --chown=nextjs:nodejs /app/package.json ./package.json
 COPY --from=builder --chown=nextjs:nodejs /app/public ./public
+
+COPY ./public/$FAVICON_FILE.ico ./public/favicon.ico
 COPY --from=builder --chown=nextjs:nodejs /app/src ./src
 
 USER nextjs
