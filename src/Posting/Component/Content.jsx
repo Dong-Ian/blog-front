@@ -1,4 +1,4 @@
-import { useMemo, useRef } from "react";
+import { useMemo, useRef, useState } from "react";
 
 import { storage } from "../../Firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
@@ -10,7 +10,6 @@ import ReactQuill, { Quill } from "react-quill";
 import ImageResize from "quill-image-resize";
 
 import hljs from "highlight.js";
-
 import "highlight.js/styles/atom-one-dark-reasonable.css";
 
 function Content({ content, setContent }) {
