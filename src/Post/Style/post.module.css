@@ -11,6 +11,10 @@
   padding: 20px;
 }
 
+.back_button {
+  margin-top: 16px;
+}
+
 .category {
   margin: 20px 0;
   cursor: pointer;
@@ -87,7 +91,7 @@
   margin-top: 20px;
 
   > ul {
-    list-style: square;
+    /* list-style: square; */
     padding: 0;
   }
 
@@ -129,7 +133,7 @@
   }
 }
 
-@media (min-width: 1300px) {
+@media (min-width: 1500px) {
   .headingList {
     border-left: 1px solid black;
     padding: 10px 20px;
@@ -141,7 +145,7 @@
   }
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 1500px) {
   .headingList {
     display: none;
   }

@@ -136,7 +136,7 @@ function PostPage() {
             {userInfo && <AccountComponent userInfo={userInfo} />}
           </div>
           <div className={styles.post_box}>
-            <div style={{ marginTop: "16px" }}>
+            <div className={styles.back_button}>
               <BackButton />
             </div>
             {post.category !== "NULL" ? (
