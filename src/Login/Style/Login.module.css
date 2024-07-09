@@ -47,10 +47,6 @@
     /* border-radius: 4px; */
   }
 
-  > input::placeholder {
-    /* color: red; */
-  }
-
   > input:focus {
     outline: none;
   }
