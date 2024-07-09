@@ -65,9 +65,14 @@ function EditPostPage({ post, categoryList }) {
         </div>
         <Title title={title} setTitle={setTitle} />
         <Catetory category={category} setCategory={setCategory} />
-        <div className={styles.categorylist}>
-          <CategoryList categoryList={categoryList} setCategory={setCategory} />
-        </div>
+        {categoryList.length !== 0 && (
+          <div className={styles.categorylist}>
+            <CategoryList
+              categoryList={categoryList}
+              setCategory={setCategory}
+            />
+          </div>
+        )}
         <Tag tag={tags} setTag={setTags} />
         <Content content={content} setContent={setContent} />
 
