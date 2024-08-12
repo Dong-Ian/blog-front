@@ -1,0 +1,152 @@
+.post_box {
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 180px auto 0 auto;
+}
+
+.title {
+  margin: 0 0 0 30px;
+
+  > input {
+    border-width: 0 0 1px;
+    height: 40px;
+    width: 400px;
+    font-size: 35px;
+    font-weight: 700;
+    padding: 0 0 10px 10px;
+    margin: 0 0 20px 0;
+  }
+
+  > input::placeholder {
+    font-size: 30px;
+    font-weight: 500;
+  }
+
+  > input:focus {
+    outline: none;
+  }
+}
+
+.category {
+  margin: 30px 0 10px 30px;
+
+  > input {
+    border-width: 0 0 1px;
+    font-size: 15px;
+    padding: 0 0 5px 5px;
+  }
+
+  > input:focus {
+    outline: none;
+  }
+}
+
+.categorylist {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 10px;
+  width: 90%;
+  max-width: 600px;
+  margin: 0 0 30px 30px;
+
+  > div {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+}
+
+.tag {
+  margin: 0 0 30px 30px;
+  display: flex;
+
+  > input {
+    border-width: 0 0 1px;
+    margin: 10px 0 0 0;
+    font-size: 15px;
+    padding: 0 0 5px 5px;
+  }
+
+  > input:focus {
+    outline: none;
+  }
+}
+
+.tag_box {
+  display: flex;
+  margin: 3px 10px 0 0;
+
+  > p {
+    font-size: 15px;
+    margin: 8px 0 0 0;
+  }
+
+  > button {
+    border: none;
+    background-color: white;
+    font-size: 15px;
+    cursor: pointer;
+  }
+}
+
+.textForm {
+  margin-left: 30px;
+  margin-bottom: 10d0px;
+}
+
+.textBox {
+  max-width: 1000px;
+  height: 500px;
+  width: 95%;
+  margin: 0 0 60px 0;
+}
+
+.button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 0 0 50px 0;
+  padding-top: 30px;
+  cursor: pointer;
+  /* border: 1px solid black; */
+
+  > button {
+    border: none;
+    background-color: white;
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 1300px) {
+  .outer_post_box {
+    display: flex;
+  }
+
+  .post_box {
+    /* background-color: red; */
+  }
+
+  .preview_box {
+    /* background-color: orange; */
+    width: 100%;
+    max-width: 700px;
+    margin-top: 180px;
+    border-left: 1px solid black;
+    padding: 30px 0 10px 30px;
+  }
+}
+
+@media (max-width: 1300px) {
+  .post_box {
+    /* background-color: orange; */
+  }
+
+  .preview_box {
+    /* background-color: red; */
+    display: none;
+  }
+}

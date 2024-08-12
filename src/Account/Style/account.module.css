@@ -1,0 +1,172 @@
+.infoBox {
+  border: 1px solid white;
+  width: 320px;
+  margin: 100px 0 0 0;
+  z-index: 0;
+  text-align: center;
+  position: relative;
+}
+
+/*프로필사진*/
+.profileWrapper {
+  z-index: 10;
+
+  > button {
+    border: none;
+    background-color: white;
+    margin: 10px 0 0 0;
+    color: skyblue;
+    font-weight: 500;
+  }
+}
+
+.profileImgDiv {
+  overflow: hidden;
+  width: 170px;
+  height: 170px;
+  border-radius: 70%;
+  margin: 0 auto;
+
+  > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+/*계정 정보*/
+.infoContentBox {
+  margin: 35px 0;
+}
+
+.name {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+}
+
+.userDescription {
+  font-size: 15px;
+}
+
+/*표*/
+.table {
+  margin: 30px 0;
+}
+
+.tableDiv > div {
+  display: flex;
+  width: 400px;
+  margin: 0 auto;
+}
+
+.tableTitleDiv {
+  width: 100px;
+  display: flex;
+  margin: 0 30px 0 20px;
+  justify-content: center;
+
+  > p {
+    font-size: 15px;
+    margin: auto 0;
+    font-weight: 600;
+  }
+}
+
+/*소셜 계정*/
+.socialTable {
+  > p {
+    font-size: 14px;
+    color: gray;
+  }
+}
+
+.socialAccountDiv {
+  display: flex;
+}
+
+.socialIconDiv {
+  width: 45px;
+  display: flex;
+  height: 30px;
+
+  > img {
+    height: 20px;
+    margin: auto 0;
+  }
+}
+
+.socialIdDiv {
+  width: 200px;
+  display: flex;
+  margin: 0 0 0 -10px;
+}
+
+.social {
+  font-size: 14px;
+  margin: auto 0;
+  color: black;
+  transition: 0.1s ease-out;
+}
+
+.social:hover {
+  color: skyblue;
+  transition: 0.1s ease-out;
+}
+
+.nullSocial {
+  font-size: 13px;
+  color: gray;
+  margin: auto 0;
+}
+
+.emailDiv {
+  > p {
+    font-size: 14px;
+    margin: auto 0;
+  }
+}
+
+.authorUserInfoBox {
+  background-color: white;
+  padding: 0 0 80px 0;
+  width: 300px;
+
+  > div > hr {
+    width: 320px;
+    margin: 20px 0;
+  }
+}
+
+.userInfoBox {
+  > div > hr {
+    width: 320px;
+    margin: 20px 0;
+  }
+}
+/*링크*/
+.linkTableDiv {
+  display: flex;
+  cursor: pointer;
+
+  img {
+    height: 17px;
+    margin: auto 15px auto 0;
+  }
+}
+
+.personalLink {
+  font-size: 14px;
+  margin: 3px 0;
+  color: black;
+  transition: 0.1s ease-out;
+}
+
+.personalLink:hover {
+  color: skyblue;
+  transition: 0.1s ease-out;
+}
+
+.hidden {
+  display: none;
+}

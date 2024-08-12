@@ -1,0 +1,83 @@
+b {
+  font-weight: 900;
+}
+
+i {
+  font-style: italic;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 35px;
+  margin: 20px 0 10px 0;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 25px;
+  margin: 20px 0 20px 0;
+}
+
+u {
+  text-decoration: underline;
+}
+
+s {
+  text-decoration: line-through;
+}
+
+blockquote {
+  margin: 20px 0;
+  padding: 10px 20px;
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+
+ol {
+  margin: 0 0 10px 20px;
+  padding: 0;
+  list-style-type: decimal;
+}
+
+ol li {
+  margin: 10px 0;
+}
+
+ul {
+  margin: 0 0 10px 20px;
+  padding: 0;
+  list-style-type: disc;
+}
+
+ul li {
+  margin: 10px 0 0 0;
+}
+
+ul[data-checked="false"] {
+  list-style-type: none;
+  margin-left: 0px;
+}
+
+ul[data-checked="false"] li::before {
+  content: "\2713";
+  margin-right: 10px;
+  color: gray;
+}
+
+ul[data-checked="true"] {
+  list-style-type: none;
+  margin-left: 0px;
+}
+
+ul[data-checked="true"] li::before {
+  content: "\2713";
+  margin-right: 10px;
+  color: red;
+}
