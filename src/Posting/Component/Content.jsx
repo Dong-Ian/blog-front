@@ -43,6 +43,7 @@ function Content({ content, setContent }) {
       "sql",
       "swift",
       "c",
+      "flutter",
     ],
   });
 
