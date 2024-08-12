@@ -45,7 +45,12 @@ function Header() {
               </div>
             )}
           </div>
-          <p onClick={() => navigate("/")}>{title}</p>
+          <p
+            style={{ fontFamily: "Times New Roman" }}
+            onClick={() => navigate("/")}
+          >
+            {title}
+          </p>
 
           <div className={styles.rightbox}>
             {isLoggedIn && (
