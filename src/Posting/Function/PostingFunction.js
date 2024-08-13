@@ -27,6 +27,6 @@ export default async function PostingFunction({
   );
 
   const res = await result.json();
-
+  console.log(res);
   return res;
 }
