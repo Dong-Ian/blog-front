@@ -111,11 +111,11 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    gap: 10px;
+    gap: 13px;
   }
 
   > div > p {
-    border: 1px solid black;
+    box-shadow: 0px 0px 5px 0px gray;
     border-radius: 8px;
     padding: 10px;
     cursor: pointer;
