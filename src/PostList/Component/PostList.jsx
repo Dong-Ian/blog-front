@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-import cheerio from "cheerio";
+import * as cheerio from "cheerio";
 
 import styles from "../Style/postlist.module.css";
 
