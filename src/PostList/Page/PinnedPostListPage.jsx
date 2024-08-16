@@ -12,6 +12,7 @@ import Header from "../../Component/Header";
 import PaginationComponent from "../Component/PaginationComponent";
 import BackButton from "../../Component/BackButton";
 import AccountComponent from "../../Account/Component/AccountComponent";
+import Footer from "../../Utils/Component/Footer";
 
 function PinnedPostListPage() {
   const navigate = useNavigate();
@@ -90,6 +91,7 @@ function PinnedPostListPage() {
             <div className={styles.nullpost}>등록된 게시글이 없습니다</div>
           )}
         </div>
+        <Footer />
       </div>
     );
   }

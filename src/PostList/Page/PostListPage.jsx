@@ -12,6 +12,7 @@ import PaginationComponent from "../Component/PaginationComponent";
 import Header from "../../Component/Header";
 import BackButton from "../../Component/BackButton";
 import AccountComponent from "../../Account/Component/AccountComponent";
+import Footer from "../../Utils/Component/Footer";
 
 function PostListPage() {
   const navigate = useNavigate();
@@ -89,6 +90,7 @@ function PostListPage() {
             <div className={styles.nullpost}>등록된 게시글이 없습니다</div>
           )}
         </div>
+        <Footer />
       </div>
     );
   }

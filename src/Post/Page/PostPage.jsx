@@ -22,6 +22,7 @@ import BackButton from "../../Component/BackButton";
 import AccountComponent from "../../Account/Component/AccountComponent";
 import HeaderTagList from "../Component/HeaderTagList";
 import Title from "../Component/Title";
+import Footer from "../../Utils/Component/Footer";
 
 function DateRender({ reg, view }) {
   const date = new Date(reg);
@@ -178,6 +179,7 @@ function PostPage() {
 
           <Comment post={post} />
           <div className={styles.comment} />
+          <Footer />
         </div>
       </>
     );

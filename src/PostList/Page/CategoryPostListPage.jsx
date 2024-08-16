@@ -12,6 +12,7 @@ import Header from "../../Component/Header";
 import PaginationComponent from "../Component/PaginationComponent";
 import BackButton from "../../Component/BackButton";
 import AccountComponent from "../../Account/Component/AccountComponent";
+import Footer from "../../Utils/Component/Footer";
 
 function CategoryPostListPage() {
   const location = useLocation();
@@ -88,6 +89,7 @@ function CategoryPostListPage() {
             activePage={activePage}
           />
         </div>
+        <Footer />
       </div>
     );
   }
