@@ -12,6 +12,7 @@ import Header from "../../Component/Header";
 import PostList from "../../PostList/Component/PostList";
 import AccountComponent from "../../Account/Component/AccountComponent";
 import Category from "../Component/Category";
+import Footer from "../../Utils/Component/Footer";
 
 function HomePage() {
   const navigate = useNavigate();
@@ -111,6 +112,7 @@ function HomePage() {
             <Category />
           </div>
         </div>
+        <Footer />
       </>
     );
   }
