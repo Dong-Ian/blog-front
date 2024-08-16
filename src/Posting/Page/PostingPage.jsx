@@ -16,9 +16,9 @@ import Content from "../Component/Content";
 import Catetory from "../Component/Category";
 import Tag from "../Component/Tag";
 import CategoryList from "../Component/CategoryList";
-import Header from "../../Component/Header";
-import BackButton from "../../Component/BackButton";
-import Preview from "../Component/Preview";
+
+import Header from "../../Utils/Component/Header";
+import BackButton from "../../Utils/Component/BackButton";
 
 function PostingPage() {
   const navigate = useNavigate();

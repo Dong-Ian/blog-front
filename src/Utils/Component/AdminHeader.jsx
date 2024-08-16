@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { useRecoilValue } from "recoil";
-import { tokenState } from "../Utils/Atom";
+import { tokenState } from "../Atom";
 
 import styles from "./Style/component.module.css";
 
-import LoadAccountFunction from "../Account/Function/LoadAccountFunction";
-import JWTTestFunction from "../Utils/Function/JWTTestFunction";
+import LoadAccountFunction from "../../Account/Function/LoadAccountFunction";
+import JWTTestFunction from "../Function/JWTTestFunction";
 
 function AdminHeader({ state }) {
   const navigate = useNavigate();

@@ -15,13 +15,15 @@ import DeleteButton from "../Component/DeleteButton";
 import UnPinButton from "../Component/UnPinButton";
 import PinButton from "../Component/PinButton";
 import Tag from "../Component/Tag";
-import Header from "../../Component/Header";
 import EditPostButton from "../Component/EditPostButton";
 import Comment from "../Component/Comment";
-import BackButton from "../../Component/BackButton";
 import AccountComponent from "../../Account/Component/AccountComponent";
 import HeaderTagList from "../Component/HeaderTagList";
 import Title from "../Component/Title";
+
+import Header from "../../Utils/Component/Header";
+import BackButton from "../../Utils/Component/BackButton";
+import Footer from "../../Utils/Component/Footer";
 
 function DateRender({ reg, view }) {
   const date = new Date(reg);
@@ -76,6 +78,19 @@ function AdminButtonRender({
         </div>
       )}
     </>
+  );
+}
+
+function BottomBackButtonRender({ navigate }) {
+  return (
+    <div
+      className={styles.bottom_back_button}
+      onClick={() => {
+        navigate(-1);
+      }}
+    >
+      <button>목록으로</button>
+    </div>
   );
 }
 
@@ -167,17 +182,21 @@ function PostPage() {
             <hr className={styles.hr} />
             <Contents post={post} />
             <hr className={styles.hr} />
-            <AdminButtonRender
-              isLoggedIn={isLoggedIn}
-              token={token}
-              postSeq={postSeq}
-              post={post}
-              setChangePinned={setChangePinned}
-            />
+            <div className={styles.button_div}>
+              <BottomBackButtonRender navigate={navigate} />
+              <AdminButtonRender
+                isLoggedIn={isLoggedIn}
+                token={token}
+                postSeq={postSeq}
+                post={post}
+                setChangePinned={setChangePinned}
+              />
+            </div>
           </div>
 
           <Comment post={post} />
           <div className={styles.comment} />
+          <Footer />
         </div>
       </>
     );

@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { useRecoilState } from "recoil";
-import { ColorState, isLoggedInState } from "../Utils/Atom";
+import { ColorState, isLoggedInState } from "../Atom";
 
 import styles from "./Style/component.module.css";
 
-import LoadAccountFunction from "../Account/Function/LoadAccountFunction";
-import accountIcon from "../Utils/Asset/person_white.png";
+import LoadAccountFunction from "../../Account/Function/LoadAccountFunction";
+import accountIcon from "../Asset/person_white.png";
 
 function Header() {
   const navigate = useNavigate();

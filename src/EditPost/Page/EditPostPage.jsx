@@ -10,11 +10,12 @@ import EditPostFunction from "../Function/EditPostFunction";
 
 import Title from "../../Posting/Component/Title";
 import Content from "../../Posting/Component/Content";
-import Header from "../../Component/Header";
 import Tag from "../../Posting/Component/Tag";
 import Catetory from "../../Posting/Component/Category";
 import CategoryList from "../../Posting/Component/CategoryList";
-import BackButton from "../../Component/BackButton";
+
+import Header from "../../Utils/Component/Header";
+import BackButton from "../../Utils/Component/BackButton";
 
 function EditPostPage({ post, categoryList }) {
   const navigate = useNavigate();
