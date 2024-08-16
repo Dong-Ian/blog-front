@@ -80,6 +80,19 @@ function AdminButtonRender({
   );
 }
 
+function BottomBackButtonRender({ navigate }) {
+  return (
+    <div
+      className={styles.bottom_back_button}
+      onClick={() => {
+        navigate(-1);
+      }}
+    >
+      <button>목록으로</button>
+    </div>
+  );
+}
+
 function PostPage() {
   const { postSeq } = useParams();
   const navigate = useNavigate();
@@ -168,13 +181,16 @@ function PostPage() {
             <hr className={styles.hr} />
             <Contents post={post} />
             <hr className={styles.hr} />
-            <AdminButtonRender
-              isLoggedIn={isLoggedIn}
-              token={token}
-              postSeq={postSeq}
-              post={post}
-              setChangePinned={setChangePinned}
-            />
+            <div className={styles.button_div}>
+              <BottomBackButtonRender navigate={navigate} />
+              <AdminButtonRender
+                isLoggedIn={isLoggedIn}
+                token={token}
+                postSeq={postSeq}
+                post={post}
+                setChangePinned={setChangePinned}
+              />
+            </div>
           </div>
 
           <Comment post={post} />
