@@ -12,8 +12,9 @@ import EditAccountFunction from "../Function/EditAccountFunction";
 import EditProfileImg from "../Component/EditProfileImg";
 import EditElement from "../Component/EditElement";
 import EditColor from "../Component/EditColor";
-import AdminHeader from "../../Component/AdminHeader";
-import BackButton from "../../Component/BackButton";
+
+import AdminHeader from "../../Utils/Component/AdminHeader";
+import BackButton from "../../Utils/Component/BackButton";
 
 function AdminPage({ profile }) {
   const token = useRecoilValue(tokenState);

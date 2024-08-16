@@ -8,10 +8,11 @@ import LoadCategoryPostListFunction from "../Function/LoadCategoryPostListFuncti
 import LoadAccountFunction from "../../Account/Function/LoadAccountFunction";
 
 import PostList from "../Component/PostList";
-import Header from "../../Component/Header";
 import PaginationComponent from "../Component/PaginationComponent";
-import BackButton from "../../Component/BackButton";
 import AccountComponent from "../../Account/Component/AccountComponent";
+
+import BackButton from "../../Utils/Component/BackButton";
+import Header from "../../Utils/Component/Header";
 import Footer from "../../Utils/Component/Footer";
 
 function CategoryPostListPage() {

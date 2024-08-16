@@ -8,10 +8,11 @@ import LoadPinnedPostListFunction from "../../PostList/Function/LoadPinnedPostLi
 import LoadAccountFunction from "../../Account/Function/LoadAccountFunction";
 import LoadPostListFunction from "../../PostList/Function/LoadPostListFunction";
 
-import Header from "../../Component/Header";
 import PostList from "../../PostList/Component/PostList";
 import AccountComponent from "../../Account/Component/AccountComponent";
 import Category from "../Component/Category";
+
+import Header from "../../Utils/Component/Header";
 import Footer from "../../Utils/Component/Footer";
 
 function HomePage() {

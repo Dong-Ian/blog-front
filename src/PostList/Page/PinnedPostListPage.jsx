@@ -6,12 +6,12 @@ import styles from "../Style/postlist.module.css";
 
 import LoadPinnedPostListFunction from "../Function/LoadPinnedPostListFunction";
 import LoadAccountFunction from "../../Account/Function/LoadAccountFunction";
-
 import PostList from "../Component/PostList";
-import Header from "../../Component/Header";
 import PaginationComponent from "../Component/PaginationComponent";
-import BackButton from "../../Component/BackButton";
 import AccountComponent from "../../Account/Component/AccountComponent";
+
+import Header from "../../Utils/Component/Header";
+import BackButton from "../../Utils/Component/BackButton";
 import Footer from "../../Utils/Component/Footer";
 
 function PinnedPostListPage() {

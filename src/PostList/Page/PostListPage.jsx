@@ -9,9 +9,10 @@ import LoadAccountFunction from "../../Account/Function/LoadAccountFunction";
 
 import PostList from "../Component/PostList";
 import PaginationComponent from "../Component/PaginationComponent";
-import Header from "../../Component/Header";
-import BackButton from "../../Component/BackButton";
 import AccountComponent from "../../Account/Component/AccountComponent";
+
+import Header from "../../Utils/Component/Header";
+import BackButton from "../../Utils/Component/BackButton";
 import Footer from "../../Utils/Component/Footer";
 
 function PostListPage() {
