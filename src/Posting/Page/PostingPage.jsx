@@ -20,6 +20,11 @@ import CategoryList from "../Component/CategoryList";
 import Header from "../../Utils/Component/Header";
 import BackButton from "../../Utils/Component/BackButton";
 
+/**
+ * 게시글 작성 페이지 컴포넌트
+ *
+ * @returns {JSX.Element} 게시글 작성 페이지를 표시하는 JSX 요소
+ */
 function PostingPage() {
   const navigate = useNavigate();
 
@@ -33,22 +38,26 @@ function PostingPage() {
 
   const [categoryList, setCategoryList] = useState([]);
 
+  /**
+   * 게시글을 작성하는 비동기 함수
+   *
+   * @async
+   * @function Posting
+   * @returns {Promise<void>}
+   */
   async function Posting() {
     if (postTitle === "") {
       alert("제목을 입력해주세요.");
-
       return;
     }
 
     if (postContents === "") {
       alert("내용을 입력해주세요.");
-
       return;
     }
 
     if (category === "") {
       alert("카테고리를 선택해주세요.");
-
       return;
     }
 
@@ -65,7 +74,6 @@ function PostingPage() {
     if (result.result) {
       alert("포스팅 성공");
       navigate(`/post/${result.postSeq}`);
-
       return;
     }
 
@@ -73,6 +81,13 @@ function PostingPage() {
     return;
   }
 
+  /**
+   * JWT 토큰을 검사하여 세션이 유효한지 확인하는 비동기 함수
+   *
+   * @async
+   * @function JWT
+   * @returns {Promise<void>}
+   */
   async function JWT() {
     const result = await JWTTestFunction({ token });
 
@@ -80,12 +95,17 @@ function PostingPage() {
 
     setIsLoggedIn(false);
     alert("세션이 만료되었습니다. 다시 로그인 해주세요");
-
     navigate("/");
-
     return;
   }
 
+  /**
+   * 카테고리 목록을 로드하는 비동기 함수
+   *
+   * @async
+   * @function LoadCategory
+   * @returns {Promise<void>}
+   */
   async function LoadCategory() {
     const result = await LoadCategoryFunction();
 
@@ -114,7 +134,6 @@ function PostingPage() {
               <BackButton />
             </div>
             <Title title={postTitle} setTitle={setPostTitle} />
-
             <Catetory category={category} setCategory={setCategory} />
             <div className={styles.categorylist}>
               <CategoryList
@@ -122,19 +141,12 @@ function PostingPage() {
                 setCategory={setCategory}
               />
             </div>
-
             <Tag tag={tags} setTag={setTags} />
             <Content content={postContents} setContent={setPostContents} />
             <div className={styles.button}>
               <button onClick={Posting}>글 작성하기</button>
             </div>
           </div>
-          {/* <Preview
-            title={postTitle}
-            category={category}
-            tag={tags}
-            contents={postContents}
-          /> */}
         </div>
       </>
     );
