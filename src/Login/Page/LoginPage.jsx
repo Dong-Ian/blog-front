@@ -13,6 +13,12 @@ import LoadAccountFunction from "../../Account/Function/LoadAccountFunction";
 import Email from "../Component/Email";
 import Password from "../Component/Password";
 
+/**
+ * 애플리케이션의 로그인 페이지를 렌더링하는 컴포넌트
+ *
+ * @component
+ * @returns {JSX.Element} 로그인 페이지 컴포넌트를 반환
+ */
 function LoginPage() {
   const navigate = useNavigate();
 
@@ -25,6 +31,13 @@ function LoginPage() {
   const [title, setTitle] = useState(null);
   const [color, setColor] = useState(null);
 
+  /**
+   * 로그인 폼 제출을 처리하는 함수
+   *
+   * @async
+   * @param {Object} e - 폼 제출 이벤트 객체
+   * @returns {Promise<void>} 로그인 프로세스가 완료되면 resolve되는 프로미스를 반환
+   */
   async function Login(e) {
     e.preventDefault();
     const result = await LoginFunction({ email, password });
@@ -40,13 +53,18 @@ function LoginPage() {
     return;
   }
 
+  /**
+   * 계정 정보를 로드하여 로그인 페이지를 커스터마이징하는 함수
+   *
+   * @async
+   * @returns {Promise<void>} 계정 정보 로드가 완료되면 resolve되는 프로미스를 반환
+   */
   async function LoadAccount() {
     const result = await LoadAccountFunction();
 
     if (result.result) {
       setColor(result.profileResult.color);
       setTitle(result.profileResult.title);
-
       return;
     }
 
