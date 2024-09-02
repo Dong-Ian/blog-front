@@ -62,7 +62,7 @@ function PaginationComponent({
         link.style.color = "white";
       }
     });
-  }, [activePage, color]); // activePage와 color가 변경될 때마다 스타일 업데이트
+  }, [activePage]); // activePage가 변경될 때마다 스타일 업데이트
 
   return (
     <div className={styles.pagination}>
@@ -75,7 +75,7 @@ function PaginationComponent({
         nextPageText=">"
         prevPageText="< "
         activeClass="current"
-        unActiveClass="unactive"
+        unActiveElement="unactive"
       />
     </div>
   );

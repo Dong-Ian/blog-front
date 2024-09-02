@@ -66,6 +66,7 @@ function AdminPage({ profile }) {
     }
 
     alert("프로필 사진을 변경하지 못했습니다.");
+    return;
   }
 
   /**
@@ -92,6 +93,7 @@ function AdminPage({ profile }) {
     }
 
     alert("서버 오류");
+    return;
   }
 
   if (profile) {

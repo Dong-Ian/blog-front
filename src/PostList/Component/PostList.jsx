@@ -91,8 +91,8 @@ function DateTimeRender({ reg, view }) {
   const hour = date.getHours();
   const min = date.getMinutes();
 
-  const paddedHour = String(hour).padStart(2, "0");
-  const paddedMin = String(min).padStart(2, "0");
+  const paddedHour = String(hour).padStart(2, 0);
+  const paddedMin = String(min).padStart(2, 0);
 
   return (
     <div className={styles.date}>
