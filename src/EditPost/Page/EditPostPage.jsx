@@ -17,9 +17,16 @@ import CategoryList from "../../Posting/Component/CategoryList";
 import Header from "../../Utils/Component/Header";
 import BackButton from "../../Utils/Component/BackButton";
 
+/**
+ * 게시물 수정 페이지 컴포넌트
+ *
+ * @param {Object} props - 컴포넌트에 전달된 props
+ * @param {Object} props.post - 수정할 게시물의 데이터
+ * @param {Array} props.categoryList - 카테고리 목록
+ * @returns {JSX.Element} 수정 페이지 컴포넌트
+ */
 function EditPostPage({ post, categoryList }) {
   const navigate = useNavigate();
-
   const token = useRecoilValue(tokenState);
 
   const postSeq = post.postSeq;
@@ -30,6 +37,12 @@ function EditPostPage({ post, categoryList }) {
 
   const isPinned = post.isPinned;
 
+  /**
+   * 게시물 수정 함수
+   *
+   * 사용자에게 수정 확인을 요청한 후, 서버에 게시물 수정 요청을 보냄
+   * 수정이 완료되면 게시물 상세 페이지로 이동함
+   */
   async function EditPost() {
     if (window.confirm("글을 수정하시겠습니까?")) {
       const result = await EditPostFunction({
