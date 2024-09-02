@@ -16,18 +16,32 @@ import EditColor from "../Component/EditColor";
 import AdminHeader from "../../Utils/Component/AdminHeader";
 import BackButton from "../../Utils/Component/BackButton";
 
+/**
+ * 관리자 페이지 컴포넌트
+ *
+ * 이 컴포넌트는 관리자 프로필 정보를 수정하는 기능을 제공
+ * - 프로필 이미지 변경
+ * - 회원 정보 변경 (이름, 타이틀, GitHub, Instagram, 메모, URL)
+ * - 대표 색상 변경
+ *
+ * @param {Object} props - 컴포넌트의 속성
+ * @param {Object} props.profile - 현재 프로필 정보
+ * @returns {JSX.Element} - 관리자 페이지의 JSX 요소
+ */
 function AdminPage({ profile }) {
   const token = useRecoilValue(tokenState);
 
+  // 프로필 이미지와 관련된 상태 관리
   const [formData, setFormData] = useState(new FormData());
-
   const [profileImg, setProfileImg] = useState(
     profile.images.profileImage || ""
   );
 
+  // 색상 상태 관리
   const [color, setColor] = useRecoilState(ColorState);
   const [state, setState] = useState(color);
 
+  // 프로필 정보 상태 관리
   const [name, setName] = useState(profile.userName || "");
   const [memo, setMemo] = useState(profile.memo || "");
   const [githubUrl, setGithubUrl] = useState(profile.githubUrl || "");
@@ -35,6 +49,11 @@ function AdminPage({ profile }) {
   const [personalUrl, setPersonalUrl] = useState(profile.personalUrl || "");
   const [title, setTitle] = useState(profile.title || "");
 
+  /**
+   * 프로필 이미지 변경 함수
+   *
+   * 프로필 이미지를 변경하기 위한 API 호출을 수행
+   */
   async function profileImgFunction() {
     const result = await EditProfileImgFunction({
       token: token,
@@ -50,6 +69,11 @@ function AdminPage({ profile }) {
     return;
   }
 
+  /**
+   * 프로필 정보 수정 함수
+   *
+   * 프로필 정보를 변경하기 위한 API 호출을 수행
+   */
   async function EditProfile() {
     const result = await EditAccountFunction({
       token: token,
@@ -65,12 +89,10 @@ function AdminPage({ profile }) {
     if (result.result) {
       setColor({ background: state });
       alert("성공적으로 프로필이 수정되었습니다.");
-
       return;
     }
 
     alert("서버 오류");
-
     return;
   }
 

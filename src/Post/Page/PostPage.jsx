@@ -10,21 +10,31 @@ import styles from "../Style/post.module.css";
 import LoadPostFunctioin from "../Function/LoadPostFunction";
 import LoadAccountFunction from "../../Account/Function/LoadAccountFunction";
 
-import Contents from "../Component/Contents";
+import AccountComponent from "../../Account/Component/AccountComponent";
+
 import DeleteButton from "../Component/DeleteButton";
 import UnPinButton from "../Component/UnPinButton";
 import PinButton from "../Component/PinButton";
-import Tag from "../Component/Tag";
 import EditPostButton from "../Component/EditPostButton";
-import Comment from "../Component/Comment";
-import AccountComponent from "../../Account/Component/AccountComponent";
-import HeaderTagList from "../Component/HeaderTagList";
+
 import Title from "../Component/Title";
+import Contents from "../Component/Contents";
+import Tag from "../Component/Tag";
+import Comment from "../Component/Comment";
+import HeaderTagList from "../Component/HeaderTagList";
 
 import Header from "../../Utils/Component/Header";
 import BackButton from "../../Utils/Component/BackButton";
 import Footer from "../../Utils/Component/Footer";
 
+/**
+ * 날짜와 조회수를 렌더링하는 컴포넌트
+ *
+ * @param {Object} props - 컴포넌트에 전달되는 속성
+ * @param {string} props.reg - 게시글 등록 날짜
+ * @param {number} props.view - 게시글 조회수
+ * @returns {JSX.Element} 날짜와 조회수를 표시하는 JSX 요소
+ */
 function DateRender({ reg, view }) {
   const date = new Date(reg);
   date.setHours(date.getHours() + 9);
@@ -49,6 +59,17 @@ function DateRender({ reg, view }) {
   );
 }
 
+/**
+ * 관리자 기능 버튼을 렌더링하는 컴포넌트
+ *
+ * @param {Object} props - 컴포넌트에 전달되는 속성
+ * @param {boolean} props.isLoggedIn - 로그인 상태
+ * @param {string} props.token - 인증 토큰
+ * @param {number} props.postSeq - 게시글 시퀀스 번호
+ * @param {Object} props.post - 게시글 정보
+ * @param {Function} props.setChangePinned - 게시글 고정 상태 변경 함수
+ * @returns {JSX.Element} 관리자 기능 버튼을 표시하는 JSX 요소
+ */
 function AdminButtonRender({
   isLoggedIn,
   token,
@@ -81,6 +102,13 @@ function AdminButtonRender({
   );
 }
 
+/**
+ * 하단의 '목록으로' 버튼을 렌더링하는 컴포넌트
+ *
+ * @param {Object} props - 컴포넌트에 전달되는 속성
+ * @param {Function} props.navigate - 페이지 탐색 함수
+ * @returns {JSX.Element} 하단의 '목록으로' 버튼을 표시하는 JSX 요소
+ */
 function BottomBackButtonRender({ navigate }) {
   return (
     <div
@@ -94,6 +122,11 @@ function BottomBackButtonRender({ navigate }) {
   );
 }
 
+/**
+ * 게시글 페이지를 렌더링하는 컴포넌트
+ *
+ * @returns {JSX.Element} 게시글 페이지를 표시하는 JSX 요소
+ */
 function PostPage() {
   const { postSeq } = useParams();
   const navigate = useNavigate();
@@ -105,6 +138,11 @@ function PostPage() {
   const [post, setPost] = useState(null);
   const [changePinned, setChangePinned] = useState(false);
 
+  /**
+   * 사용자 정보를 로드하는 비동기 함수
+   *
+   * @returns {Promise<void>}
+   */
   async function LoadUserInfo() {
     const result = await LoadAccountFunction();
 
@@ -118,6 +156,11 @@ function PostPage() {
     return;
   }
 
+  /**
+   * 게시글 정보를 로드하는 비동기 함수
+   *
+   * @returns {Promise<void>}
+   */
   async function LoadPost() {
     const result = await LoadPostFunctioin({ postSeq });
 

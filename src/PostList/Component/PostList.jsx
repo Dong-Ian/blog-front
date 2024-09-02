@@ -1,9 +1,14 @@
 import { useNavigate } from "react-router-dom";
-
 import * as cheerio from "cheerio";
-
 import styles from "../Style/postlist.module.css";
 
+/**
+ * 카테고리 렌더링 컴포넌트
+ *
+ * @param {Object} props - 컴포넌트의 props
+ * @param {string} props.category - 카테고리 이름
+ * @returns {JSX.Element} 카테고리 이름을 표시하는 컴포넌트
+ */
 function CategoryRender({ category }) {
   return (
     <div className={styles.category}>
@@ -12,6 +17,13 @@ function CategoryRender({ category }) {
   );
 }
 
+/**
+ * 제목 렌더링 컴포넌트
+ *
+ * @param {Object} props - 컴포넌트의 props
+ * @param {string} props.title - 게시글 제목
+ * @returns {JSX.Element} 게시글 제목을 표시하는 컴포넌트
+ */
 function TitleRender({ title }) {
   return (
     <div className={styles.title}>
@@ -20,6 +32,14 @@ function TitleRender({ title }) {
   );
 }
 
+/**
+ * 내용 렌더링 컴포넌트
+ * HTML 콘텐츠를 텍스트로 변환하여 게시글 내용의 일부만 표시
+ *
+ * @param {Object} props - 컴포넌트의 props
+ * @param {string} props.contents - 게시글 내용 (HTML 형식)
+ * @returns {JSX.Element} 변환된 게시글 내용을 표시하는 컴포넌트
+ */
 function ContentsRender({ contents }) {
   const inputText = contents;
   const $ = cheerio.load(inputText);
@@ -39,7 +59,6 @@ function ContentsRender({ contents }) {
   traverse($.root());
 
   transformedText = transformedText.replace(/\s+/g, " ").trim();
-
   const slicedText = transformedText.slice(0, 100);
 
   return (
@@ -54,14 +73,21 @@ function ContentsRender({ contents }) {
   );
 }
 
+/**
+ * 날짜 및 조회수 렌더링 컴포넌트
+ *
+ * @param {Object} props - 컴포넌트의 props
+ * @param {string} props.reg - 게시글 등록일 (ISO 문자열)
+ * @param {number} props.view - 게시글 조회수
+ * @returns {JSX.Element} 게시글의 등록일과 조회수를 표시하는 컴포넌트
+ */
 function DateTimeRender({ reg, view }) {
   const date = new Date(reg);
-  date.setHours(date.getHours() + 9);
+  date.setHours(date.getHours() + 9); // 한국 시간으로 조정
 
   const year = date.getFullYear();
   const month = date.getMonth() + 1;
   const day = date.getDate();
-
   const hour = date.getHours();
   const min = date.getMinutes();
 
@@ -78,6 +104,13 @@ function DateTimeRender({ reg, view }) {
   );
 }
 
+/**
+ * 게시글 목록 렌더링 컴포넌트
+ *
+ * @param {Object} props - 컴포넌트의 props
+ * @param {Array<Object>} props.postList - 게시글 목록 배열
+ * @returns {JSX.Element} 게시글 목록을 렌더링하는 컴포넌트
+ */
 function PostList({ postList }) {
   const navigate = useNavigate();
 
@@ -95,11 +128,12 @@ function PostList({ postList }) {
           <CategoryRender category={post.categoryName} />
           <TitleRender title={post.postTitle} />
           <ContentsRender contents={post.postContents} />
-
           <DateTimeRender reg={post.regDate} view={post.viewed} />
         </div>
 
-        <hr className={index != postList.length - 1 ? styles.hr : styles.hr2} />
+        <hr
+          className={index !== postList.length - 1 ? styles.hr : styles.hr2}
+        />
       </div>
     );
   });
