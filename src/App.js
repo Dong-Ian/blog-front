@@ -4,7 +4,6 @@ import { isLoggedInState } from "./Utils/Atom";
 
 import HomePage from "./Home/Page/HomePage";
 import LoginPage from "./Login/Page/LoginPage";
-import SignUpPage from "./SignUp/Page/SignUpPage";
 
 import PostListPage from "./PostList/Page/PostListPage";
 import PinnedPostListPage from "./PostList/Page/PinnedPostListPage";
