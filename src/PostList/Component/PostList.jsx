@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import * as cheerio from "cheerio";
 import styles from "../Style/postlist.module.css";
+import { useEffect, useState } from "react";
 
 /**
  * 카테고리 렌더링 컴포넌트
@@ -9,9 +10,15 @@ import styles from "../Style/postlist.module.css";
  * @param {string} props.category - 카테고리 이름
  * @returns {JSX.Element} 카테고리 이름을 표시하는 컴포넌트
  */
-function CategoryRender({ category }) {
+function CategoryRender({ category, isMobileScreen }) {
   return (
-    <div className={styles.category}>
+    <div
+      className={
+        isMobileScreen
+          ? `${styles.category} ${styles.small_category}`
+          : styles.category
+      }
+    >
       <p>{category}</p>
     </div>
   );
@@ -24,9 +31,15 @@ function CategoryRender({ category }) {
  * @param {string} props.title - 게시글 제목
  * @returns {JSX.Element} 게시글 제목을 표시하는 컴포넌트
  */
-function TitleRender({ title }) {
+function TitleRender({ title, isMobileScreen }) {
   return (
-    <div className={styles.title}>
+    <div
+      className={
+        isMobileScreen
+          ? `${styles.title} ${styles.small_title}`
+          : `${styles.title} ${styles.big_title}`
+      }
+    >
       <p>{title}</p>
     </div>
   );
@@ -113,6 +126,17 @@ function DateTimeRender({ reg, view }) {
  */
 function PostList({ postList }) {
   const navigate = useNavigate();
+  const [isMobileScreen, setIsMobileScreen] = useState(false);
+
+  function handleResize() {
+    setIsMobileScreen(window.innerWidth <= 500);
+  }
+
+  useEffect(() => {
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return postList.map((post, index) => {
     return (
@@ -125,13 +149,16 @@ function PostList({ postList }) {
             })
           }
         >
-          <CategoryRender category={post.categoryName} />
-          <TitleRender title={post.postTitle} />
+          <CategoryRender
+            category={post.categoryName}
+            isMobileScreen={isMobileScreen}
+          />
+          <TitleRender title={post.postTitle} isMobileScreen={isMobileScreen} />
           <ContentsRender contents={post.postContents} />
           <DateTimeRender reg={post.regDate} view={post.viewed} />
         </div>
 
-        <hr
+        <div
           className={index !== postList.length - 1 ? styles.hr : styles.hr2}
         />
       </div>

@@ -138,6 +138,12 @@ function PostPage() {
   const [post, setPost] = useState(null);
   const [changePinned, setChangePinned] = useState(false);
 
+  const [isMobileScreen, setIsMobileScreen] = useState(false);
+
+  function handleResize() {
+    setIsMobileScreen(window.innerWidth <= 500);
+  }
+
   /**
    * 사용자 정보를 로드하는 비동기 함수
    *
@@ -177,6 +183,12 @@ function PostPage() {
   }
 
   useEffect(() => {
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
     LoadPost();
     LoadUserInfo();
   }, [changePinned]);
@@ -199,7 +211,11 @@ function PostPage() {
             </div>
             {post.category !== "NULL" ? (
               <div
-                className={styles.category}
+                className={
+                  isMobileScreen
+                    ? `${styles.category} ${styles.small_category}`
+                    : `${styles.category} ${styles.big_category}`
+                }
                 onClick={() =>
                   navigate(`/postlist/category/${post.category}`, {
                     state: { category: post.category },
@@ -212,7 +228,7 @@ function PostPage() {
               <div className={styles.category}></div>
             )}
 
-            <Title title={post.postTitle} />
+            <Title title={post.postTitle} isMobileScreen={isMobileScreen} />
             <Tag tagList={post.tags} />
             <DateRender reg={post.regDate} view={post.viewed} />
             <AdminButtonRender

@@ -7,9 +7,15 @@ import styles from "../Style/post.module.css";
  * @param {string} props.title - 게시글 제목
  * @returns {JSX.Element} 제목을 포함하는 div 요소
  */
-function Title({ title }) {
+function Title({ title, isMobileScreen }) {
   return (
-    <div className={styles.title}>
+    <div
+      className={
+        isMobileScreen
+          ? `${styles.title} ${styles.small_title}`
+          : `${styles.title} ${styles.big_title}`
+      }
+    >
       <p>{title}</p>
     </div>
   );

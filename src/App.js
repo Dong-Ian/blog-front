@@ -24,7 +24,6 @@ function App() {
       <Routes>
         <Route exact path="/" element={<HomePage />} />
         <Route exact path="/login" element={<LoginPage />} />
-        {/* <Route exact path="/signup" element={<SignUpPage />} /> */}
 
         <Route exact path="/postlist" element={<PostListPage />} />
         <Route exact path="/postlist/pinned" element={<PinnedPostListPage />} />
@@ -34,9 +33,7 @@ function App() {
           element={<CategoryPostListPage />}
         />
         <Route exact path="/postlist/tag/:tag" element={<TagPostListPage />} />
-
         <Route exact path="/post/:postSeq" element={<PostPage />} />
-
         {isLoggedIn && (
           <Route exact path="/posting" element={<PostingPage />} />
         )}
@@ -47,7 +44,6 @@ function App() {
             element={<EditPostLandingPage />}
           />
         )}
-
         {isLoggedIn && (
           <Route exact path="/admin" element={<AdminLandingPage />} />
         )}

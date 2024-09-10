@@ -16,14 +16,16 @@
 }
 
 .pinnedbox {
-  box-shadow: 0px 0px 10px 0px gray;
+  /* box-shadow: 0px 0px 10px 0px gray; */
+  border: 0.1px solid black;
   border-radius: 10px;
   margin: 120px 0 0 0;
   padding: 20px 0 0 0;
 }
 
 .unpinnedbox {
-  box-shadow: 0px 0px 10px 0px gray;
+  /* box-shadow: 0px 0px 10px 0px gray; */
+  border: 0.1px solid black;
   border-radius: 10px;
   margin: 40px 0 0 0;
   padding: 20px 0 0 0;
