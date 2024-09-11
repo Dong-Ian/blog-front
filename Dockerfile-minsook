@@ -1,11 +1,9 @@
 FROM node:20.3-alpine3.17 AS base
 
-RUN apk add --no-cache libc6-compat
-
 WORKDIR /app
 
 COPY package-lock.json package.json /app/
-# RUN npm install -g pnpm
+
 RUN npm install
 
 
@@ -24,7 +22,7 @@ COPY ./public/minsook.ico ./public/favicon.ico
 RUN npm run build
 
 
-FROM node:20.3-alpine3.17 AS runner
+FROM builder AS runner
 
 WORKDIR /home/nextjs
 # RUN npm install -g pnpm
@@ -40,6 +38,8 @@ COPY --from=builder --chown=nextjs:nodejs /app/public ./public
 
 # COPY ./public/$FAVICON_FILE.ico ./public/favicon.ico
 COPY --from=builder --chown=nextjs:nodejs /app/src ./src
+
+RUN chown -R nextjs:nextjs ./*
 
 USER nextjs
 
