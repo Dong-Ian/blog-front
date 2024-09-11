@@ -19,7 +19,7 @@ COPY . .
 
 ENV FAVICON_FILE minsook
 
-COPY ./public/$FAVICON_FILE.ico ./public/favicon.ico
+COPY ./public/minsook.ico ./public/favicon.ico
 
 RUN npm run build
 

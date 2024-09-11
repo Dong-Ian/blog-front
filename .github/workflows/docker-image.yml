@@ -47,3 +47,8 @@ jobs:
       run: |
         docker build . --file Dockerfile-minsook --tag registry.donghyuns.com/${{secrets.IMAGE_NAME}}/minjae:latest
         docker push registry.donghyuns.com/${{secrets.IMAGE_NAME}}/minjae:latest
+
+    - name: dockerfile build and push
+      run: |
+        docker build . --file Dockerfile-donghyun --tag registry.donghyuns.com/${{secrets.IMAGE_NAME}}/donghyun:latest
+        docker push registry.donghyuns.com/${{secrets.IMAGE_NAME}}/donghyun:latest
