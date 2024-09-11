@@ -5,8 +5,8 @@ RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
 COPY package-lock.json package.json /app/
-RUN npm install -g pnpm
-RUN pnpm install
+
+RUN npm install
 
 
 FROM base AS builder
@@ -19,15 +19,15 @@ COPY . .
 
 ENV FAVICON_FILE minsook
 
-COPY ./public/$FAVICON_FILE.ico ./public/favicon.ico
+COPY ./public/minsook.ico ./public/favicon.ico
 
-RUN pnpm build
+RUN npm run build
 
 
-FROM node:20.3-alpine3.17 AS runner
+FROM builder AS runner
 
 WORKDIR /home/nextjs
-RUN npm install -g pnpm
+# RUN npm install -g pnpm
 
 ENV NODE_ENV production
 
@@ -43,4 +43,4 @@ COPY --from=builder --chown=nextjs:nodejs /app/src ./src
 
 USER nextjs
 
-CMD ["pnpm","start"]
+CMD ["npm", "start"]
