@@ -42,12 +42,6 @@ jobs:
         username: ${{ secrets.DOCKER_USER }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
-
-    - name: dong - dockerfile build and push
-      run: |
-        docker build . --file Dockerfile-minsook --tag registry.donghyuns.com/${{secrets.IMAGE_NAME}}/minjae:latest
-        docker push registry.donghyuns.com/${{secrets.IMAGE_NAME}}/minjae:latest
-
     - name: minsook - dockerfile build and push
       run: |
         docker build . --file Dockerfile-donghyun --tag registry.donghyuns.com/${{secrets.IMAGE_NAME}}/donghyun:latest
