@@ -41,8 +41,6 @@ COPY --from=builder --chown=nextjs:nodejs /app/public ./public
 # COPY ./public/$FAVICON_FILE.ico ./public/favicon.ico
 COPY --from=builder --chown=nextjs:nodejs /app/src ./src
 
-RUN chown -R nextjs:nextjs ./*
-
 USER nextjs
 
 CMD ["npm", "start"]
